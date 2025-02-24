@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Instrument configuration – OKX API guide | OKX technical support | OKX</title>
+    <meta name="description" content="Welcome to the OKX API guide, OKX technical support. OKX is a leading BTC exchange with highly secure SSL encryption and cold storage etc for crypto trading.">
+    <meta name="keywords" content="OKX API guide, OKX technical support">
+
+    <link rel="shortcut icon" href="https://static.coinall.ltd/cdn/assets/imgs/221/A73079733B3789DA.png" type="image/png">
+
+
+
+
+      <link rel="canonical" href="https://www.okx.com/docs-v5/trick_en/">
+      <link rel="alternate" href="https://www.okx.com/docs-v5/trick_zh/" hreflang="zh-Hans">
+      <link rel="alternate" href="https://www.okx.com/docs-v5/trick_en/" hreflang="en">
+      <link rel="alternate" href="https://www.okx.com/docs-v5/trick_en/" hreflang="x-default">
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="best_practice_files/screen-0cf183b4.css" rel="stylesheet" media="screen">
+    <link href="best_practice_files/print-2731ee0a.css" rel="stylesheet" media="print">
+      <script type="text/javascript" integrity="sha384-Zjo8RUFg5Yqd1RrmP6raXmuRVOWdstZw1jbsr6ssfu0KGRWb0JixIs3Kvj6MPBMJ" crossorigin="anonymous" async="" src="best_practice_files/amplitude-8.2.3-min.gz.js"></script><script src="best_practice_files/all_nosearch-30221305.js"></script>
+
+    <script>
+      var currentHref = window.location.href;
+      var pathname = window.location.pathname;
+      var pathArr = pathname.split('/').reverse();
+      var modules = ['en', 'broker_en', 'trick_en', 'log_en'];
+      var moduleType = pathArr[1];
+      var moduleIndex = modules.indexOf(moduleType);
+      var switchLanguage = true;
+      $(function() {
+        setupCodeCopy();
+        $('.toc-nav-list li').removeClass("selected").eq(moduleIndex).addClass('selected');
+        $('.toc-nav-dropdown option').removeAttr("selected").eq(moduleIndex).prop('selected', true);
+      });
+      function changeHyperlink() {
+        if(switchLanguage) {
+            switchLanguage = false;
+            var hash = window.location.hash;
+            window.location.href = pathname.replace("en","zh") + hash;
+        }
+      }
+      function changeMenuLink(type) {
+        pathArr[1] = type;
+        window.location.href = pathArr.reverse().join('/');
+      }
+    </script>
+    <style>
+    .content aside.notice:before {
+        content: '';
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        background-image: url("data:image/image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAD1BMVEUAAAAgX+wgYOsgYOsgX+zxKDX3AAAABHRSTlMAv4BAMM4GbAAAAIhJREFUKM+NkcsRgCAMRP0V4GgK0BkK8GABBum/JgdYFxQO5AL7CEtm6Rpr3EWXI9PifG0/7ewLToe60eBY0WaCYotJQL0ewnaN+OCNGQvfsAITWqRRJGzANYGJIPZemKYGJAdaAwaAz54AHKzHiQkccQAgRflMTpPoVERYD5kJKL9qgC6+sq0e+31Meuswx+MAAAAASUVORK5CYII=");
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        padding: 0;
+        margin-right: 7px;
+        vertical-align: text-bottom;
+      }
+  .content aside.warning:before {
+      content: '';
+      display: inline-block;
+      height: 16px;
+      width: 16px;
+      background-image: url("data:image/image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAD1BMVEUAAADjYGDjXl7jXV3jXl6rsL0UAAAABHRSTlMAQIC/o1TdDAAAAIpJREFUKM+dkd0NgCAMhAEdwL8BNHEAjQ7gz+0/k4HDFsML8Z7gS3twrSlW236u3Q7co94dgoRYRDURzAC2DcCVFBijJbWCQzrQWEgPCMTWKeDLVQoW70ng8LoOrCU4/wGarr2YVki0yMduHYlNPRiOJw1X86can8F3htWeQLMh52sQ4hc1Zass1ANrMkLgf7knqgAAAABJRU5ErkJggg==");
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      padding: 0;
+      margin-right: 7px;
+    vertical-align: text-bottom;
+    }
+    .toc-wrapper .search:before {
+        content: '';
+        height: 12px;
+        width: 12px;
+        background-image: url("data:image/image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAD1BMVEUAAAD///////////////+PQt5oAAAABHRSTlMAgL9ARyeO/QAAAKpJREFUKM9lkdENwyAMRE3oAE3FAFFhABQxQEpu/5naXjGulfsyjztjZPkq7sBaZSoWfPS6/59JFDTAkQgg17gCqAQ3gOkAHASJVhadFzSw+mUW616wscVhz51MjoSaC4NjgE4gHsAA6yvwEd80ECRsE/DZpoNxRj96Ioj2uVGV+f1RLONiBwEzWLkJDTeoLEz1pJZQeK7BdvN49lxFpsVmx2kn24S3iFfKb13fLBtfa1iNAAAAAElFTkSuQmCC");
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      top: 19px
+    }
+    </style>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="best_practice_files/navbar-cad8cdcb.png" alt="">
+      </span>
+    </a>
+    <header>
+    <div class="toc-left">
+      <a href="https://www.okx.com/">
+        <img src="best_practice_files/187957948BD02D97.png" class="logo" alt="">
+      </a>
+      <div class="toc-split-line"></div>
+      <ul class="toc-nav-list">
+        <li class=""><a href="https://www.okx.com/docs-v5/en">API</a></li>
+        <li><a href="https://www.okx.com/docs-v5/broker_en">Broker</a></li>
+        <li class="selected"><a href="https://www.okx.com/docs-v5/trick_en">Best Practice</a></li>
+        <li><a href="https://www.okx.com/docs-v5/log_en">Change Log</a></li>
+      </ul>
+      <select class="toc-nav-dropdown" onchange="javascript:changeMenuLink(options[selectedIndex].value)">
+        <option value="en">API</option>
+        <option value="broker_en">Broker</option>
+        <option value="trick_en" selected="selected">Best Practice</option>
+        <option value="log_en">Change Log</option>
+      </select>
+    </div>
+      <div class="switch-language">
+        <a onclick="javascript:changeHyperlink()" class="toc-link" style="display: inline-block;" href="javascript:void(0);">中文</a>
+      </div>
+    </header>
+    <div class="toc-wrapper">
+        <ul id="toc" class="toc-list-h1">
+            <li>
+              <a href="#instrument-configuration" class="toc-h1 toc-link active" data-title="Instrument configuration">Instrument configuration</a>
+            </li>
+            <li>
+              <a href="#market-data" class="toc-h1 toc-link" data-title="Market data">Market data</a>
+            </li>
+            <li>
+              <a href="#configuring-accounts-and-sub-accounts" class="toc-h1 toc-link" data-title="Configuring accounts and sub-accounts">Configuring accounts and sub-accounts</a>
+                <ul class="toc-list-h2" style="display: none;">
+                    <li>
+                      <a href="#configuring-accounts-and-sub-accounts-account-config" class="toc-h2 toc-link" data-title="Account config">Account config</a>
+                    </li>
+                    <li>
+                      <a href="#configuring-accounts-and-sub-accounts-account-mode" class="toc-h2 toc-link" data-title="Account mode">Account mode</a>
+                    </li>
+                    <li>
+                      <a href="#configuring-accounts-and-sub-accounts-position" class="toc-h2 toc-link" data-title="Position&nbsp;">Position&nbsp;</a>
+                    </li>
+                    <li>
+                      <a href="#configuring-accounts-and-sub-accounts-auto-borrow" class="toc-h2 toc-link" data-title="Auto-borrow">Auto-borrow</a>
+                    </li>
+                    <li>
+                      <a href="#configuring-accounts-and-sub-accounts-option-greeks-type" class="toc-h2 toc-link" data-title="Option Greeks type">Option Greeks type</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#cross-isolated-margin-mode" class="toc-h1 toc-link" data-title="Cross/Isolated margin mode">Cross/Isolated margin mode</a>
+                <ul class="toc-list-h2" style="display: none;">
+                    <li>
+                      <a href="#cross-isolated-margin-mode-getting-leverage" class="toc-h2 toc-link" data-title="Getting leverage">Getting leverage</a>
+                    </li>
+                    <li>
+                      <a href="#cross-isolated-margin-mode-setting-leverage" class="toc-h2 toc-link" data-title="Setting leverage">Setting leverage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#order-management" class="toc-h1 toc-link" data-title="Order management">Order management</a>
+                <ul class="toc-list-h2">
+                    <li>
+                      <a href="#order-management-trade-mode" class="toc-h2 toc-link" data-title="Trade mode">Trade mode</a>
+                    </li>
+                    <li>
+                      <a href="#order-management-subscribing-to-the-orders-channel" class="toc-h2 toc-link" data-title="Subscribing to the orders channel">Subscribing to the orders channel</a>
+                    </li>
+                    <li>
+                      <a href="#order-management-placing-an-order" class="toc-h2 toc-link" data-title="Placing an order">Placing an order</a>
+          <ul class="toc-list-h3">
+              <li>
+                <a href="#order-management-placing-an-order-rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+              </li>
+              <li>
+                <a href="#order-management-placing-an-order-websocket" class="toc-h3 toc-link" data-title="WebSocket">WebSocket</a>
+              </li>
+          </ul>
+                    </li>
+                    <li>
+                      <a href="#order-management-checking-order-state" class="toc-h2 toc-link" data-title="Checking order state">Checking order state</a>
+                    </li>
+                    <li>
+                      <a href="#order-management-amending-an-order" class="toc-h2 toc-link" data-title="Amending an order">Amending an order</a>
+                    </li>
+                    <li>
+                      <a href="#order-management-canceling-an-order" class="toc-h2 toc-link" data-title="Canceling an order">Canceling an order</a>
+                    </li>
+                    <li>
+                      <a href="#order-management-batch-operations" class="toc-h2 toc-link" data-title="Batch operations">Batch operations</a>
+                    </li>
+                    <li>
+                      <a href="#order-management-order-timestamp" class="toc-h2 toc-link" data-title="Order timestamp">Order timestamp</a>
+                    </li>
+                    <li>
+                      <a href="#order-management-pagination" class="toc-h2 toc-link" data-title="Pagination">Pagination</a>
+                    </li>
+                    <li>
+                      <a href="#order-management-self-trade-prevention" class="toc-h2 toc-link" data-title="Self trade prevention">Self trade prevention</a>
+          <ul class="toc-list-h3">
+              <li>
+                <a href="#order-management-self-trade-prevention-stp-modes" class="toc-h3 toc-link" data-title="STP Modes">STP Modes</a>
+              </li>
+          </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#trading-account-and-positions-information" class="toc-h1 toc-link" data-title="Trading account and positions information">Trading account and positions information</a>
+                <ul class="toc-list-h2">
+                    <li>
+                      <a href="#trading-account-and-positions-information-account" class="toc-h2 toc-link" data-title="Account">Account</a>
+          <ul class="toc-list-h3">
+              <li>
+                <a href="#trading-account-and-positions-information-account-websocket-subscription" class="toc-h3 toc-link" data-title="WebSocket subscription">WebSocket subscription</a>
+              </li>
+              <li>
+                <a href="#trading-account-and-positions-information-account-initial-snapshot" class="toc-h3 toc-link" data-title="Initial snapshot">Initial snapshot</a>
+              </li>
+              <li>
+                <a href="#trading-account-and-positions-information-account-subsequent-updates" class="toc-h3 toc-link" data-title="Subsequent updates">Subsequent updates</a>
+              </li>
+              <li>
+                <a href="#trading-account-and-positions-information-account-rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+              </li>
+          </ul>
+                    </li>
+                    <li>
+                      <a href="#trading-account-and-positions-information-maximum-available-tradable-amount" class="toc-h2 toc-link" data-title="Maximum available tradable amount">Maximum available tradable amount</a>
+                    </li>
+                    <li>
+                      <a href="#trading-account-and-positions-information-maximum-withdrawal-amount" class="toc-h2 toc-link" data-title="Maximum withdrawal amount">Maximum withdrawal amount</a>
+                    </li>
+                    <li>
+                      <a href="#trading-account-and-positions-information-balance-and-position" class="toc-h2 toc-link" data-title="Balance and position">Balance and position</a>
+                    </li>
+                    <li>
+                      <a href="#trading-account-and-positions-information-positions" class="toc-h2 toc-link" data-title="Positions">Positions</a>
+          <ul class="toc-list-h3">
+              <li>
+                <a href="#trading-account-and-positions-information-positions-websocket-subscription" class="toc-h3 toc-link" data-title="WebSocket subscription">WebSocket subscription</a>
+              </li>
+              <li>
+                <a href="#trading-account-and-positions-information-positions-initial-snapshot" class="toc-h3 toc-link" data-title="Initial snapshot">Initial snapshot</a>
+              </li>
+              <li>
+                <a href="#trading-account-and-positions-information-positions-subsequent-updates" class="toc-h3 toc-link" data-title="Subsequent updates">Subsequent updates</a>
+              </li>
+              <li>
+                <a href="#trading-account-and-positions-information-positions-position-id" class="toc-h3 toc-link" data-title="Position ID">Position ID</a>
+              </li>
+              <li>
+                <a href="#trading-account-and-positions-information-positions-rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+              </li>
+          </ul>
+                    </li>
+                    <li>
+                      <a href="#trading-account-and-positions-information-reconciliation-between-fill-and-positions" class="toc-h2 toc-link" data-title="Reconciliation between fill and positions">Reconciliation between fill and positions</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#identifiers" class="toc-h1 toc-link" data-title="Identifiers">Identifiers</a>
+            </li>
+            <li>
+              <a href="#system-status" class="toc-h1 toc-link" data-title="System status">System status</a>
+            </li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+        <div class="dark-box"></div>
+        <div class="content" style="padding-bottom: 841px;">
+          <h1 id="instrument-configuration">Instrument configuration</h1>
+<p>Users can get the exchange instruments configuration from <a href="https://www.okx.com/docs-v5/en/#public-data-rest-api-get-instruments"><code>GET /api/v5/public/instruments</code></a>.</p>
+
+<p>Subsequent instrument updates, such as tick size changes and new listings will be published from the websocket <a href="https://www.okx.com/docs-v5/en/#public-data-websocket-instruments-channel"><code>instruments</code></a> channel.</p>
+<h1 id="market-data">Market data</h1>
+<p>Users can receive real time market data updates from websocket channels.</p>
+
+<p><code>bbo-tbt</code> and <code>books5</code> are depth snapshots that
+ are published every 10ms and 100ms. New snapshots are not sent when 
+there is no change in the orderbook.</p>
+
+<p><code>books</code>, <code>books-l2-tbt</code>, and <code>books50-l2-tbt</code> are incremental order book channels. <code>books</code> publishs the changes in the order book every 100ms. <code>books-l2-tbt</code> and <code>books50-l2-tbt</code> push changes every 10ms. In order to use  <code>books-l2-tbt</code> and <code>books50-l2-tbt</code>, users must login before subscribing and are limited to VIP levels 5 and 4, respectively.</p>
+
+<p>Order book data is created once every 10ms internally and relevant 
+data is sent out depending on the subscribed channel. Users receive the 
+same order book image from all websocket connections and channels.</p>
+
+<p>No update is sent if the depth changes from A -&gt; B -&gt; A during 
+the interval. If there are no updates to the depth for an extended 
+period, the system resends the current depth for snapshot channels, a 
+message with no depth updates for incremental channels, to inform users 
+that the connection is still active.</p>
+<h1 id="configuring-accounts-and-sub-accounts">Configuring accounts and sub-accounts</h1>
+<p>After creating sub-accounts and their API Keys, users can configure 
+the master account and sub-accounts via the API before trading.</p>
+<h2 id="configuring-accounts-and-sub-accounts-account-config">Account config</h2>
+<p>The account config of each account/sub-account can be retrieved via the REST API as follows:</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-get-account-configuration"><code>GET /api/v5/account/config</code></a>.</p>
+
+<p>The API returns account mode, position mode, auto-borrow setting, and
+ the Greeks type option, among additional account-related information.</p>
+<h2 id="configuring-accounts-and-sub-accounts-account-mode">Account mode</h2>
+<p>In the Trading account trading system, 4 account modes are supported:
+ Spot mode, Spot and futures mode, Multi-currency margin mode, and 
+Portfolio margin mode.</p>
+
+<p>Users can only change these modes via the web or mobile app interface.</p>
+<h2 id="configuring-accounts-and-sub-accounts-position">Position&nbsp;</h2>
+<p>There are 2 position modes as detailed below.</p>
+
+<p><code>net</code> mode: Positions can be held on one side only. 
+Exchange will open/close the position automatically depending on the 
+position (positive/negative) specified.</p>
+
+<p><code>long</code> and <code>short</code> mode: Positions can be held on both sides at the same time.</p>
+
+<p>To change the position mode, users can invoke the following REST API:</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-set-position-mode"><code>POST /api/v5/account/set-position-mode</code></a></p>
+
+<p>Note: All positions must be closed with no pending orders to perform the switch.</p>
+<h2 id="configuring-accounts-and-sub-accounts-auto-borrow">Auto-borrow</h2>
+<p>Auto-borrowing is only applicable in Multi-currency margin mode and 
+Portfolio margin mode and can only be enabled or disabled via the web 
+UI.</p>
+
+<p>Exchange may automatically convert from the available balance in 
+other currencies to repay the liability. The  risk indicator can be 
+found from the <code>twap</code> field in <a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-get-balance"><code>GET /api/v5/account/balance</code></a> and WS <a href="https://www.okx.com/docs-v5/en/#trading-account-websocket-account-channel"><code>account</code></a> endpoints.</p>
+<h2 id="configuring-accounts-and-sub-accounts-option-greeks-type">Option Greeks type</h2>
+<p>Users can set the option Greeks type via the endpoint below:</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-set-greeks-pa-bs"><code>POST /api/v5/account/set-greeks</code></a></p>
+<h1 id="cross-isolated-margin-mode">Cross/Isolated margin mode</h1>
+<p>Users have the flexibility to have positions in isolated and cross-margin at the same time.</p>
+
+<p>As a result, there is no API for setting margin mode per position. 
+Instead, users should specify the margin mode (i.e. trade mode) using 
+the field <code>tdMode</code> when placing an order.</p>
+<h2 id="cross-isolated-margin-mode-getting-leverage">Getting leverage</h2>
+<p>Users can retrieve leverage information via the following REST API:</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-get-leverage"><code>GET /api/v5/account/leverage-info</code></a></p>
+
+<p>Currently, there is no global leverage setting. The leverage can be set in different scopes.</p>
+
+<p>For margin instrument type:&nbsp;</p>
+
+<table>
+  <tbody>
+      <tr>
+      <th>Account Mode</th>
+      <th>Margin Mode</th>
+      <th>Scope</th>
+    </tr>
+    <tr>
+      <td rowspan="2">Spot mode</td>
+      <td>Cross</td>
+      <td>Per instrument</td>
+    </tr>
+    <tr>
+      <td>Isolated</td>
+      <td>Per instrument</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Spot and futures mode</td>
+      <td>Cross</td>
+      <td>Per instrument</td>
+    </tr>
+    <tr>
+      <td>Isolated</td>
+      <td>Per instrument</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Multi-currency margin</td>
+      <td>Cross</td>
+      <td>Per currency</td>
+    </tr>
+    <tr>
+      <td>Isolated</td>
+      <td>Per instrument</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For other instrument types:&nbsp;</p>
+
+<table>
+  <tbody>
+      <tr>
+      <th>Position Mode</th>
+      <th>Instrument Type</th>
+      <th>Margin Mode</th>
+      <th>Scope</th>
+    </tr>
+    <tr>
+      <td rowspan="4">Net</td>
+      <td rowspan="2">Futures</td>
+      <td>Cross</td>
+      <td>Per Instrument Family</td>
+    </tr>
+    <tr>
+      <td>Isolated</td>
+      <td>Per Instrument Family</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Swap</td>
+      <td>Cross</td>
+      <td>Per Instrument Family</td>
+    </tr>
+    <tr>
+      <td>Isolated</td>
+      <td>Per Instrument Family</td>
+    </tr>
+    <tr>
+      <td rowspan="4">Long/Short</td>
+      <td rowspan="2">Futures</td>
+      <td>Cross</td>
+      <td>Per Instrument Family</td>
+    </tr>
+    <tr>
+      <td>Isolated</td>
+      <td>Per Instrument Family per side</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Swap</td>
+      <td>Cross</td>
+      <td>Per Instrument Family</td>
+    </tr>
+    <tr>
+      <td>Isolated</td>
+      <td>Per Instrument Family per side</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="cross-isolated-margin-mode-setting-leverage">Setting leverage</h2>
+<p>After getting the leverage info, users can set the leverage accordingly:</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-set-leverage"><code>POST /api/v5/account/set-leverage</code></a></p>
+
+<p>With these 2 APIs, users can write a program to set the leverage of each instrument beforehand.</p>
+
+<p>For example, consider the following scenario:</p>
+
+<ul>
+<li>  Account mode: Multi-currency Margin</li>
+<li>  Position mode: Net</li>
+<li>  Instruments that users want to set leverage to 3.0:
+
+<ul>
+<li>  BTC-USDT, EOS-USDT, LTC-BTC, LTC-USDT</li>
+<li>  BTC-USD-210319, BTC-USD-210326, BTC-USD-210625</li>
+<li>  BTC-USD-SWAP</li>
+</ul></li>
+<li>  Interested in cross-margin mode only for above instruments</li>
+</ul>
+
+<p>For spot/margin instruments, since the leverage is set per currency, 
+users can extract the currency pair and set each currency accordingly, 
+i.e. BTC, USDT, EOS, and LTC.</p>
+
+<p>Sample request body of setting BTC leverage to 3.0 (applicable to selling BTC-USDT and buying LTC-BTC):</p>
+
+<table><tbody><tr><td>{<br>&nbsp;&nbsp;"lever": "3.0",<br>&nbsp;&nbsp;"mgnMode": "cross",<br>&nbsp;&nbsp;"ccy": "BTC"<br>}</td></tr></tbody></table>
+
+<p>The request bodies for setting USDT, EOS, and LTC are similar.</p>
+
+<p>If users want to set the leverage of <code>BTC-USD-210319</code>, <code>BTC-USD-210326</code>, and <code>BTC-USD-210625</code>, since they share the same instrument family, i.e. BTC-USD, leverage only needs to be set once with one of the instruments.</p>
+
+<table><tbody><tr><td>{<br>&nbsp;&nbsp;"lever": "3.0",<br>&nbsp;&nbsp;"mgnMode": "cross",<br>&nbsp;&nbsp;"instId": "BTC-USD-210326"<br>}</td></tr></tbody></table>
+
+<p>If users want to set the leverage of BTC-USD-SWAP, leverage must be 
+seperated between futures and swap despite having the same instrument 
+family (BTC-USD) as the above futures.</p>
+
+<p>To do so, users can invoke the API with the following request body:&nbsp;</p>
+
+<table><tbody><tr><td>{<br>&nbsp;&nbsp;"lever": "3.0",<br>&nbsp;&nbsp;"mgnMode": "cross",<br>&nbsp;&nbsp;"instId": "BTC-USD-SWAP"<br>}</td></tr></tbody></table>
+
+<p>At this point, users should be set with the above 6 API calls for the 8 instruments.</p>
+
+<p>Follow the above instructions to set up sub-accounts with the new API and configure accounts to suit  trading preferences.</p>
+<h1 id="order-management">Order management</h1><h2 id="order-management-trade-mode">Trade mode</h2>
+<p>With the flexibility of placing orders with cross and isolated margin modes, users must specify the trade mode (<code>tdMode</code>).</p>
+
+<p>The following table shows <code>tdMode</code> values that must be set:</p>
+
+<table>
+    <tbody>
+        <tr>
+            <th>Account Mode</th>
+            <th>Instrument Type</th>
+            <th>Margin Mode</th>
+            <th>Trade Mode (tdMode)</th>
+        </tr>
+        <tr>
+            <td rowspan="2">Spot mode</td>
+            <td>Spot</td>
+            <td>(N/A)</td>
+            <td>cash</td>
+        </tr>
+        <tr>
+            <td>Option</td>
+            <td>(N/A)</td>
+            <td>cash</td>
+        </tr>
+        <tr>
+            <td rowspan="5">Spot and futures mode</td>
+            <td>Spot</td>
+            <td>(N/A)</td>
+            <td>cash</td>
+        </tr>
+        <tr>
+            <td rowspan="2">Margin</td>
+            <td>Cross</td>
+            <td>cross</td>
+        </tr>
+        <tr>
+            <td>Isolated</td>
+            <td>isolated</td>
+        </tr>
+        <tr>
+            <td rowspan="2">Futures/Swap/Option</td>
+            <td>Cross</td>
+            <td>cross</td>
+        </tr>
+        <tr>
+            <td>Isolated</td>
+            <td>isolated</td>
+        </tr>
+        <tr>
+            <td rowspan="4">Multi-currency Margin</td>
+            <td>Spot/Margin</td>
+            <td>Cross</td>
+            <td>cross</td>
+        </tr>
+        <tr>
+            <td>Margin</td>
+            <td>Isolated</td>
+            <td>isolated</td>
+        </tr>
+        <tr>
+            <td rowspan="2">Futures/Swap/Option</td>
+            <td>Cross</td>
+            <td>cross</td>
+        </tr>
+        <tr>
+            <td>Isolated</td>
+            <td>isolated</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Let's say users want to place the following order as an example:</p>
+
+<ul>
+<li>  Account mode: Multi-currency Margin</li>
+<li>  Position mode: Net</li>
+<li>  Instrument: BTC-USDT-SWAP</li>
+<li>  Margin Mode: Cross</li>
+<li>  Side: Buy (long)</li>
+<li>  Type: Limit</li>
+<li>  Price: 50,912.4 USDT</li>
+<li>  Amount: 1 Cont</li>
+</ul>
+
+<p>By looking at the trading mode table above, <code>tdMode</code> must be set to <code>cross</code>.</p>
+<h2 id="order-management-subscribing-to-the-orders-channel">Subscribing to the orders channel</h2>
+<p>Before placing an order, users must subscribe to the <a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-ws-order-channel"><code>orders</code></a> channel with WebSocket to monitor the order state changes (e.g. <code>live</code>, <code>filled</code>) and take action if necessary (e.g. place a new order after execution).</p>
+
+<p>There are several subscription granularities when subscribing to the orders channel.&nbsp;</p>
+
+<p>To subscribe to the above-mentioned BTC-USDT-SWAP order updates, 
+users can send any of the following requests after connecting and 
+logging in to the private WebSocket:&nbsp;</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td></td>
+            <td><strong>Instrument Type</strong></td>
+            <td><strong>Instrument Type + Instrument Family</strong><strong><br></strong><strong>(Derivatives only)</strong>
+            </td>
+            <td><strong>Instrument Type + Instrument ID</strong></td>
+        </tr>
+        <tr>
+            <td>Request</td>
+            <td>{<br>&nbsp;&nbsp;"op": "subscribe",<br>&nbsp;&nbsp;"args":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "orders",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instType":
+                "SWAP"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+            <td>{<br>&nbsp;&nbsp;"op": "subscribe",<br>&nbsp;&nbsp;"args":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "orders",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instType":
+                "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instFamily":
+                "BTC-USDT"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+            <td>{<br>&nbsp;&nbsp;"op": "subscribe",<br>&nbsp;&nbsp;"args":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "orders",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instType":
+                "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instId":
+                "BTC-USDT-SWAP"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+        </tr>
+        <tr>
+            <td>Successful&nbsp;response</td>
+            <td>{<br>&nbsp;&nbsp;"event": "subscribe",<br>&nbsp;&nbsp;"arg": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "orders",<br>&nbsp;&nbsp;&nbsp;&nbsp;"instType": "SWAP"<br>&nbsp;&nbsp;}<br>}</td>
+            <td>{<br>&nbsp;&nbsp;"event": "subscribe",<br>&nbsp;&nbsp;"args":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "orders",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instType":
+                "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instFamily":
+                "BTC-USDT"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+            <td>{<br>&nbsp;&nbsp;"event": "subscribe",<br>&nbsp;&nbsp;"args":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "orders",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instType":
+                "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instId":
+                "BTC-USDT-SWAP"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Optionally, users can pass <code>ANY</code> as <code>instType</code> to subscribe to all product types at once.</p>
+
+<p>Note that the orders channel does not publish any initial snapshot of
+ user orders before the subscription. It only publishes whenever the 
+order state changes (e.g. from <code>live</code> to <code>canceled</code>).</p>
+
+<p>If users want to obtain all the live order details before subscribing, users can invoke the following API:</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-get-order-list"><code>GET /api/v5/trade/orders-pending</code></a></p>
+<h2 id="order-management-placing-an-order">Placing an order</h2>
+<p>To better identify the order in the system, it is recommended to provide a Client Order ID as assigned by the client (<code>clOrdId</code>)
+ when placing the order. The Client Order ID as assigned by the client 
+should be case-sensitive, and have a maximum of 32 alphanumeric 
+characters.</p>
+
+<p><code>clOrdId</code> uniqueness check is only applied towards all pending orders. It is recommended to use a unique <code>clOrdId</code> at all times for troubleshooting etc.</p>
+
+<p>In the following example, <code>clOrdId</code> is assigned as <code>testBTC0123</code>.</p>
+
+<p>After subscribing to the orders channel, users can place the <code>BTC-USDT-SWAP</code> order.</p>
+
+<p>Users can use REST or WebSocket to place orders.</p>
+<h3 id="order-management-placing-an-order-rest-api">REST API</h3>
+<p>Users can invoke the following REST API and the server will acknowledge the request with an order ID (<code>ordId</code>):</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td>REST API</td>
+            <td>POST /api/v5/trade/order</td>
+        </tr>
+        <tr>
+            <td>Request body</td>
+            <td>{<br>&nbsp;&nbsp;"instId": "BTC-USDT-SWAP",<br>&nbsp;&nbsp;"tdMode": "cross",<br>&nbsp;&nbsp;"clOrdId":
+                "testBTC0123",<br>&nbsp;&nbsp;"side": "buy",<br>&nbsp;&nbsp;"ordType": "limit",<br>&nbsp;&nbsp;"px":
+                "50912.4",<br>&nbsp;&nbsp;"sz": "1"<br>}</td>
+        </tr>
+        <tr>
+            <td>Successful response</td>
+            <td>{<br>&nbsp;&nbsp;"code": "0",<br>&nbsp;&nbsp;"msg": "",<br>&nbsp;&nbsp;"data":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"clOrdId":
+                "testBTC0123",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ordId":
+                "288981657420439575",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tag":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sCode": "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sMsg":
+                ""<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Note that this only indicates that the exchange has received the 
+request successfully with an order ID assigned. The order may not 
+entered matching engine at this point in time. Users should check the 
+order state.</p>
+<h3 id="order-management-placing-an-order-websocket">WebSocket</h3>
+<p>Users can place the order via WebSocket, which is, in theory, more efficient than using REST API with less overhead.</p>
+
+<p>Since WebSocket operation is asynchronous, users will also need to provide the message ID (<code>id</code>) to identify the corresponding response.</p>
+
+<p>After logging into the private WebSocket, users can send the following WebSocket message:</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td>{<br>&nbsp;&nbsp;"id": "NEWtestBTC0123",<br>&nbsp;&nbsp;"op": "order",<br>&nbsp;&nbsp;"args":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instId":
+                "BTC-USDT-SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tdMode":
+                "cross",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"clOrdId":
+                "testBTC0123",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"side":
+                "buy",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ordType":
+                "limit",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"px":
+                "50912.4",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sz":
+                "1"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>The server will acknowledge the request with the following sample 
+response with the same message ID (i.e.NEWtestBTC0123), along with an 
+order ID (<code>ordId</code>) assigned by the exchange:&nbsp;</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td>{<br>&nbsp;&nbsp;"id": "NEWtestBTC0123",<br>&nbsp;&nbsp;"op": "order",<br>&nbsp;&nbsp;"data":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"clOrdId":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ordId":
+                "288981657420439575",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tag":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sCode": "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sMsg":
+                ""<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;],<br>&nbsp;&nbsp;"code": "0",<br>&nbsp;&nbsp;"msg":
+                ""<br>}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Note that this only indicates that the exchange has received the 
+request successfully with an order ID assigned. The order may not 
+entered matching engine at this point in time. Users should check the 
+order state.</p>
+<h2 id="order-management-checking-order-state">Checking order state</h2>
+<p>After placing the order, if the order does not return any error (<code>"sCode": "0"</code>), OKX always sends out <code>"state": "live"</code> from websocket.</p>
+
+<p>Sample message (subscribed to orders channel by instrument type + instrument family):</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td>{<br>&nbsp;&nbsp;"arg": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "orders",<br>&nbsp;&nbsp;&nbsp;&nbsp;"instType": "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;"instFamily":
+                "BTC-USDT"<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"data":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"accFillSz":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"amendResult":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avgPx": "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"cTime":
+                "1615170596148",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"category":
+                "normal",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ccy":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"clOrdId":
+                "testBTC0123",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"code":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fee": "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"feeCcy":
+                "USDT",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fillPx":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fillSz":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fillTime":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instId":
+                "BTC-USDT-SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instType":
+                "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lever":
+                "3",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"msg": "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ordId":
+                "288981657420439575",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ordType":
+                "limit",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pnl":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"posSide":
+                "net",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"px":
+                "50912.4",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"rebate":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"rebateCcy":
+                "USDT",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"reqId":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"side":
+                "buy",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"slOrdPx":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"slTriggerPx":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"state": "live",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sz":
+                "1",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tag": "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tdMode":
+                "cross",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tpOrdPx":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tpTriggerPx":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tradeId":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"uTime":
+                "1615170596148"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>After the order is filled, the following sample message is pushed with the state changed to <code>filled</code>, along with other fill-related fields.&nbsp;</p>
+
+<p>If the order is partially or fully filled, websocket returns <code>state</code> = <code>partially_filled</code> and <code>filled</code> respectively.</p>
+
+<p>For immediate or cancel, fill or kill, and post only orders where 
+orders may be rejected by the matching engine, users will see a <code>live</code> then <code>canceled</code> state.</p>
+
+<p>User orders can be canceled by the system for various reasons, such as liquidation or self-trade prevention. Users can refer to <br><code>cancelSource</code> to see the reason for order cancellation.</p>
+
+<p>The terminal state of an order is either <code>canceled</code> or <code>filled</code>.</p>
+
+<p>A Trade ID (<code>tradeId</code>) will also be set for this fill and can be used for reconciliation with position as shown below.</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td>{<br>&nbsp;&nbsp;"arg": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "orders",<br>&nbsp;&nbsp;&nbsp;&nbsp;"instType": "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;"instFamily":
+                "BTC-USDT"<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"data":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"accFillSz":
+                "1",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"amendResult":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avgPx":
+                "50912.4",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"cTime":
+                "1615170596148",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"category":
+                "normal",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ccy":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"clOrdId":
+                "testBTC0123",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"code":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fee":
+                "-0.1018248",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"feeCcy":
+                "USDT",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fillPx":
+                "50912.4",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fillSz":
+                "1",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fillTime":
+                "1615170598021",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instId":
+                "BTC-USDT-SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instType":
+                "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lever":
+                "3",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"msg": "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ordId":
+                "288981657420439575",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ordType":
+                "limit",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pnl":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"posSide":
+                "net",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"px":
+                "50912.4",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"rebate":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"rebateCcy":
+                "USDT",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"reqId":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"side":
+                "buy",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"slOrdPx":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"slTriggerPx":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"state":
+                "filled",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sz":
+                "1",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tag": "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tdMode":
+                "cross",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tpOrdPx":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tpTriggerPx":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tradeId":
+                "60477021",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"uTime":
+                "1615170598022"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Possible order states:</p>
+
+<ol>
+<li>Rejected at entry, <code>sCode</code> is not 0, no updates from websocket orders channel</li>
+<li>Placed an order and immediately fully filled: <code>live</code> -&gt; <code>filled</code></li>
+<li>Placed an order and immediately filled by multiple trades: <code>live</code> -&gt; <code>partially_filled</code> -&gt; ... -&gt; <code>filled</code></li>
+<li>Placed an order but immediately canceled by matching engine (such as IOC, FOK, post only): <code>live</code> -&gt; <code>canceled</code> (cancel reason can be referred from cancelSource)</li>
+<li>Placed an IOC, partially filled, then canceled by system because there is not enough depth in price defined: <code>live</code> -&gt; <code>partially_filled</code> -&gt; <code>canceled</code></li>
+</ol>
+<h2 id="order-management-amending-an-order">Amending an order</h2>
+<p>Order amendment is supported for all instrument types, allowing price amendment (<code>newPx</code>) and/or amount (<code>newSz</code>) of the order. The cancel on fail (<code>cxlOnFail</code>) parameter is also available for order cancellation if the amendment fails.</p>
+
+<p>REST:&nbsp;</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-post-amend-order"><code>POST /api/v5/trade/amend-order</code></a></p>
+
+<p>WebSocket operation (<code>op</code>) argument:&nbsp;</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-ws-amend-order"><code>"op": "amend-order"</code></a></p>
+
+<p>Similar to placing orders, users should expect an acknowledgement 
+after sending the amend request through REST or WebSocket. Users should 
+refer to <code>amendResult</code> from Websocket <code>orders</code> channel to determine the outcome of the amendment request.</p>
+
+<p>Note that the order cannot be amended once it is fully filled or canceled.</p>
+
+<p>Successful response only means the request has been accepted by the 
+exchange. Users should refer to websocket orders for the amendment 
+result.</p>
+<h2 id="order-management-canceling-an-order">Canceling an order</h2>
+<p>Similarly users can cancel the order using REST or WebSocket.</p>
+
+<p>REST:&nbsp;</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-post-cancel-order"><code>POST /api/v5/trade/cancel-order</code></a></p>
+
+<p>WebSocket operation (<code>op</code>) argument:&nbsp;</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-ws-cancel-order"><code>"op": "cancel-order"</code></a></p>
+
+<p>An acknowledgement will be received after sending the cancel request.
+ The order is only canceled when users receive the order update from the
+ WebSocket orders channel with <code>"state": "canceled"</code>.</p>
+
+<p>Note that an order cannot be canceled when it is fully filled or is already canceled.</p>
+
+<p>Successful response only means the request has been accepted by the 
+exchange. Users should refer to websocket orders for cancellation 
+confirmation.</p>
+<h2 id="order-management-batch-operations">Batch operations</h2>
+<p>Batch operations are available for placing, amending, and canceling 
+orders and supports a maximum of 20 orders per request. Orders in each 
+batch request can be of different instrument types.</p>
+
+<p>REST:&nbsp;</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Place</td>
+<td style="text-align: left"><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-post-place-multiple-orders"><code>POST /api/v5/trade/batch-orders</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left">Amend</td>
+<td style="text-align: left"><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-post-amend-multiple-orders"><code>POST /api/v5/trade/amend-batch-orders</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left">Cancel</td>
+<td style="text-align: left"><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-post-cancel-multiple-orders"><code>POST /api/v5/trade/cancel-batch-orders</code></a></td>
+</tr>
+</tbody></table>
+
+<p>WebSocket operation (<code>op</code>) argument:&nbsp;</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Place</td>
+<td style="text-align: left"><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-ws-place-multiple-orders"><code>"op": "batch-orders"</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left">Amend</td>
+<td style="text-align: left"><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-ws-amend-multiple-orders"><code>"op": "batch-amend-orders"</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left">Cancel</td>
+<td style="text-align: left"><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-ws-cancel-multiple-orders"><code>"op": "batch-cancel-orders"</code></a></td>
+</tr>
+</tbody></table>
+
+<p>The batch operation is not all-or-nothing, i.e. it allows part of the
+ order operations to be successful. Upon receiving the acknowledgment 
+after sending a request, users should check the individual <code>sCode</code> and <code>sMsg</code> fields for each of the orders.</p>
+<h2 id="order-management-order-timestamp">Order timestamp</h2>
+<p>There are multiple timestamps within orders data for users to keep track of order states and latency measurements.</p>
+
+<p><code>cTime</code> is the order creation time after risk checks.</p>
+
+<p><code>uTime</code> is the last order updated time. It is updated after order amendment, trade fills, and order cancellation.</p>
+
+<p><code>fillTime</code> is the time when the order is matched. The <code>fillTime</code> is the same time as found in the market data trades data.</p>
+
+<p><code>inTime</code> is the time when the request is received at WebSocket / REST gateway. For REST, the time is recorded after authentication.</p>
+
+<p><code>outTime</code> is the time when the response is sent at WebSocket / REST gateway.</p>
+<h2 id="order-management-pagination">Pagination</h2>
+<p>OKX offers a pagination function to facilitate users in accessing 
+specific data from extensive datasets. The relevant request parameters 
+are outlined below.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Types</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>before</td>
+<td>String</td>
+<td>No</td>
+<td>Pagination of data to return records newer than the requested <code>ordId</code>, <code>billId</code>, <code>tradeId</code>, <code>ts</code> etc.</td>
+</tr>
+<tr>
+<td>after</td>
+<td>String</td>
+<td>No</td>
+<td>Pagination of data to return records earlier than the requested <code>ordId</code>, <code>billId</code>, <code>tradeId</code>, <code>ts</code> etc.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>String</td>
+<td>No</td>
+<td>Number of results per request. The maximum is 100. The default is 100.</td>
+</tr>
+</tbody></table>
+
+<p>For better using this function, please refer to the tips below, 
+assuming the original dataset is [10, 9, 8, 7, 6, 5, 4, 3, 2, 1].</p>
+
+<table><thead>
+<tr>
+<th>Tips</th>
+<th>Examples</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>No matter how users are passing through request parameters, <br>we always return the newest data to users.</td>
+<td>We will always return the newly created records at the beginning, e.g. [10, 9, 8, 7, ...]</td>
+</tr>
+<tr>
+<td>before and after are not included.</td>
+<td>If before=6, after=10, the data returned will be [9, 8, 7].</td>
+</tr>
+<tr>
+<td>If the record amount between before and after is above the limit, <br>we return the records that are closer to after.</td>
+<td>If before=2, after=9, limit=3, the data returned will be [8, 7, 6].</td>
+</tr>
+<tr>
+<td>If only before is passed through without after, the data closed to <br>before will be returned.</td>
+<td>If before=6, limit=3, the data returned will be [9, 8, 7]. <br><br>This feature is not applicable for position history, it will return [10, 9, 8].</td>
+</tr>
+</tbody></table>
+
+<p><br>
+To get data within a specific time range, we also offer timestamp filtering if before/after is used to do the pagination of IDs.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Types</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>begin</td>
+<td>String</td>
+<td>No</td>
+<td>Filter with a begin timestamp. Unix timestamp format in milliseconds, e.g. 1597026383085</td>
+</tr>
+<tr>
+<td>end</td>
+<td>String</td>
+<td>No</td>
+<td>Filter with an end timestamp. Unix timestamp format in milliseconds, e.g. 1597026383085</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>String</td>
+<td>No</td>
+<td>Number of results per request. The maximum is 100. The default is 100.</td>
+</tr>
+</tbody></table>
+
+<p>The tips differ slightly when using begin/end.</p>
+
+<table><thead>
+<tr>
+<th>Tips</th>
+<th>Examples</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>begin and end are included.</td>
+<td>If begin=6, end=10, the data returned will be [10, 9, 8, 7, 6].</td>
+</tr>
+<tr>
+<td>If the record amount between begin and end is above the limit, <br>we return the records that are closer to end. <br><br>If only begin is passed through without after, the data closed to <br>begin will be returned.</td>
+<td>If begin=6, limit=3, the data returned will be [8, 7, 6]. <br><br>This is not applicable to fills, it will return [10, 9, 8].</td>
+</tr>
+</tbody></table>
+
+<p><br>
+When both "begin/end" and "before/after" parameters are provided, we 
+will first filter the timestamps based on "begin/end" criteria and then 
+paginate the results according to "before/after".</p>
+
+<p><br>
+The trading endpoints that have pagination function are listed below.</p>
+
+<ul>
+<li><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-get-order-list">GET / Order List</a></li>
+<li><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-get-order-history-last-7-days">GET / Order history (last 7 days)</a></li>
+<li><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-get-order-history-last-3-months">GET / Order history (last 3 months)</a></li>
+<li><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-get-transaction-details-last-3-days">GET / Transaction details (last 3 days)</a></li>
+<li><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-get-transaction-details-last-3-months">GET / Transaction details (last 3 months)</a></li>
+<li><a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-get-bills-details-last-7-days">Get bills details (last 7 days)</a></li>
+<li><a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-get-bills-details-last-3-months">Get bills details (last 3 months)</a></li>
+<li><a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-get-positions-history">Get positions history</a></li>
+</ul>
+<h2 id="order-management-self-trade-prevention">Self trade prevention</h2>
+<p>The trading platform imposes mandatory self trade prevention at 
+master account level, which means the accounts under the same master 
+account, including master account itself and all its affiliated 
+sub-accounts, will be prevented from self trade. The default STP mode is
+ <code>Cancel Maker</code>. Users can also utilize the stpMode request 
+parameter of the placing order endpoint to determine the stpMode of a 
+certain order.</p>
+
+<p>OKX supports the following 3 STP modes (<code>stpMode</code>): <code>cancel_maker</code>, <code>cancel_taker</code> and <code>cancel_both</code>.</p>
+
+<p>Note that the mandatory STP feature is imposed to all users, all order types, and all order book trading products.</p>
+<h3 id="order-management-self-trade-prevention-stp-modes">STP Modes</h3>
+<p>For self-trade to occur, a user's taker order must be matched with their maker order which has been resting on the order book.</p>
+
+<p>OKX offers 3 modes to define the behaviour to prevent self trade, based on the mode configured in the taker order.</p>
+
+<p><strong>Cancel Maker</strong></p>
+
+<p>This is the default STP mode. To prevent self-trading, the maker 
+order will be canceled, then the taker order will continue to match with
+ the next order in the price-time priority.</p>
+
+<p><strong>Cancel Taker</strong></p>
+
+<p>The taker order will be canceled to prevent self-trading. If the 
+maker order is lower in the price-time priority, the taker order will be
+ partially filled, then canceled. FOK orders are always honored and will
+ be canceled if it would result in self-trading.</p>
+
+<p><strong>Cancel Both</strong></p>
+
+<p>Both taker and maker orders will be canceled to prevent self-trading.
+ If the maker order is lower in the price-time priority, the taker order
+ will be partially filled, then the remaining quantity of the taker and 
+maker order are canceled. FOK orders are not supported in this mode. 
+Only 1 maker order and 1 taker order are canceled.</p>
+<h1 id="trading-account-and-positions-information">Trading account and positions information</h1><h2 id="trading-account-and-positions-information-account">Account</h2><h3 id="trading-account-and-positions-information-account-websocket-subscription">WebSocket subscription</h3>
+<p>It is recommended to subscribe to the <a href="https://www.okx.com/docs-v5/en/#trading-account-websocket-account-channel"><code>account</code></a> channel using WebSocket for receiving account updates. The account channel provides the optional parameter <code>ccy</code> to specify the currency of the account.</p>
+
+<p>This endpoint returns equity value in USD and other parameters which 
+are constantly updated due to mark price changes. OKX sends updated data
+ to users regularly upon valuation changes.</p>
+
+<p>Here is a sample request and response after connecting to and logging into the private WebSocket:</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td></td>
+            <td><strong>Account</strong></td>
+            <td><strong>Account with Specific currency</strong></td>
+        </tr>
+        <tr>
+            <td>Request</td>
+            <td>{<br>&nbsp;&nbsp;"op": "subscribe",<br>&nbsp;&nbsp;"args":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "account"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+            <td>{<br>&nbsp;&nbsp;"op": "subscribe",<br>&nbsp;&nbsp;"args":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "account",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ccy":
+                "BTC"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+        </tr>
+        <tr>
+            <td>Successful response</td>
+            <td>{<br>&nbsp;&nbsp;"event": "subscribe",<br>&nbsp;&nbsp;"arg": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "account"<br>&nbsp;&nbsp;}<br>}</td>
+            <td>{<br>&nbsp;&nbsp;"event": "subscribe",<br>&nbsp;&nbsp;"arg": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "account",<br>&nbsp;&nbsp;&nbsp;&nbsp;"ccy": "BTC"<br>&nbsp;&nbsp;}<br>}</td>
+        </tr>
+    </tbody>
+</table>
+<h3 id="trading-account-and-positions-information-account-initial-snapshot">Initial snapshot</h3>
+<p>Unlike the orders channel, the <a href="https://www.okx.com/docs-v5/en/#trading-account-websocket-account-channel"><code>account</code></a>
+ channel will publish an initial snapshot for the currencies with a 
+non-zero balance, i.e. non-zero equity, available equity, or available 
+balance.</p>
+
+<p>If the user has too many currencies and the data is too large to be 
+sent in a single push message, it will be split into multiple messages.</p>
+
+<p>Consider an example account with a non-zero balance on BTC and USDT 
+and the account is set to Multi-currency margin and Portfolio margin 
+mode. Users should expect the following sample message from the account 
+channel:</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td><strong>Account</strong></td>
+            <td><strong>Account with Specific Currency</strong></td>
+        </tr>
+        <tr>
+            <td>{<br>&nbsp;&nbsp;"arg": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "account"<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"data":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"adjEq":
+                "30979.1086748182657014",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"availBal":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"availEq":
+                "18962.59868274799",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ccy":
+                "USDT",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"crossLiab":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"disEq":
+                "18978.5272656414983116",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"eq":
+                "18962.59868274799",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"frozenBal":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"interest":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isoEq":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isoLiab":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"liab":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mgnRatio":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ordFrozen":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"upl":
+                "0"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"availBal":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"availEq":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ccy":
+                "BTC",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"crossLiab":
+                "0.509575622217854",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"disEq":
+                "-25408.4180739947324516",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"eq":
+                "-0.5096053466363398",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"frozenBal":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"interest":
+                "0.0000297244184858",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isoEq":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isoLiab":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"liab":
+                "0.509575622217854",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mgnRatio":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ordFrozen":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"upl":
+                "0"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"imr":
+                "8469.4726913315758219",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isoEq":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mgnRatio":
+                "39.9556239578938079",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mmr":
+                "762.252542219842",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"totalEq":
+                "44480.5383005753085878",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"uTime":
+                "1615190165641"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}<br></td>
+            <td>{<br>&nbsp;&nbsp;"arg": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "account",<br>&nbsp;&nbsp;&nbsp;&nbsp;"ccy": "BTC"<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"data":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"adjEq":
+                "30979.1086748182657014",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"availBal":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"availEq":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ccy":
+                "BTC",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"crossLiab":
+                "0.509575622217854",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"disEq":
+                "-25408.4180739947324516",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"eq":
+                "-0.5096053466363398",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"frozenBal":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"interest":
+                "0.0000297244184858",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isoEq":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isoLiab":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"liab":
+                "0.509575622217854",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mgnRatio":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ordFrozen":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"upl":
+                "0"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"imr":
+                "8469.4726913315758219",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isoEq":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mgnRatio":
+                "39.9556239578938079",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mmr":
+                "762.252542219842",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"totalEq":
+                "44480.5383005753085878",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"uTime":
+                "1615190165641"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}<br></td>
+        </tr>
+    </tbody>
+</table>
+<h3 id="trading-account-and-positions-information-account-subsequent-updates">Subsequent updates</h3>
+<p>Subsequently users will receive account updates driven by the following:</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td>Event-driven updates</td>
+            <td>Updates driven by events such as placing and canceling orders. Multiple events (e.g. multiple orders
+                being executed at the same time) may be aggregated into one single account update.&nbsp;<br><br>Only
+                data of the affected currency will be published, including when the currency balance changes to zero.</td>
+        </tr>
+        <tr>
+            <td>Fixed time updates</td>
+            <td>Updates pushed at a regular interval (5 seconds as of writing).<br><br>Similar to the initial snapshot,
+                all currencies (or specified currencies with the ccy parameter) with non-zero balance will be pushed.</td>
+        </tr>
+    </tbody>
+</table>
+<h3 id="trading-account-and-positions-information-account-rest-api">REST API</h3>
+<p>Alternatively, users can still invoke the REST API to get the balance for currencies with non-zero balance:</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-get-balance"><code>GET /api/v5/account/balance</code></a></p>
+
+<p>Users can pass an optional parameter using <code>ccy</code> with a 
+single currency (e.g. BTC) or multiple currencies (no more than 20) 
+separated with commas (e.g. BTC,USDT,ETH). For example:&nbsp;</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-get-balance"><code>GET /api/v5/account/balance?ccy=BTC,USDT,ETH</code></a></p>
+
+<p>Unlike the account channel in WebSocket, however, the currency 
+balance, regardless of zero balance or not, will always be returned if 
+it is specified using the <code>ccy</code> parameter in the REST API, as long as users have possessed that currency before.</p>
+<h2 id="trading-account-and-positions-information-maximum-available-tradable-amount">Maximum available tradable amount</h2>
+<p>With auto-borrow enabled in Multi-currency margin mode, users can 
+buy/sell the instrument exceeding their available cash balance of that 
+currency by borrowing.</p>
+
+<p>In this case, it is useful to retrieve the max available tradable 
+amount of the instrument including the available equity and loanable 
+amount from the exchange.</p>
+
+<p>To do this, poll the following REST API in regular interval:</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-get-maximum-available-balance-equity"><code>GET /api/v5/account/max-avail-size</code></a></p>
+
+<p>See the following sample request and response for BTC-USDT with cross-margin mode under Multi-currency margin mode:</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td>Request</td>
+            <td>GET /api/v5/account/max-avail-size?instId=BTC-USDT&amp;tdMode=cross</td>
+        </tr>
+        <tr>
+            <td>Successful Response</td>
+            <td>{<br>&nbsp;&nbsp;"code": "0",<br>&nbsp;&nbsp;"data":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"availBuy":
+                "213800.4239369798722052",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"availSell":
+                "1.3539405224369181",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instId":
+                "BTC-USDT"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;],<br>&nbsp;&nbsp;"msg": ""<br>}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>For Spot instruments, <code>availBuy</code> is in quote currency and <code>availSell</code> is in base currency.</p>
+
+<p>The above response shows a maximum of 213,800.42 USDT is available to
+ buy BTC-USDT, and a maximum of 1.35394052 BTC is available to sell 
+BTC-USDT. This should be the same as the amount users see when trading 
+on the web UI.</p>
+<h2 id="trading-account-and-positions-information-maximum-withdrawal-amount">Maximum withdrawal amount</h2>
+<p>In order to find out the maximum withdrawable amount from the trading
+ account or one of their sub-accounts, users can fetch the amount from <a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-get-maximum-withdrawals"><code>GET /api/v5/account/max-withdrawal</code></a>.</p>
+
+<p>The data returned from this endpoint factors in the outstanding loan and margin in use.</p>
+<h2 id="trading-account-and-positions-information-balance-and-position">Balance and position</h2>
+<p>Data will be pushed when triggered by events such as filled order and funding transfer.</p>
+
+<p>The <a href="https://www.okx.com/docs-v5/en/#trading-account-websocket-balance-and-position-channel"><code>balance and position</code></a> channel applies to getting the account cash balance and the change of position asset.</p>
+
+<p>If the user has too many currencies and the data is too large to be 
+sent in a single push message, it will be split into multiple messages.</p>
+
+<p>Upon changes in account balance or position, this channel with less 
+fields provides the best latency data, compared to the accounts channel 
+and positions channel, in order to push the changes to customers with 
+the lowest latency.</p>
+<h2 id="trading-account-and-positions-information-positions">Positions</h2>
+<p>It is recommended to retrieve real-time positions data using WebSocket.</p>
+<h3 id="trading-account-and-positions-information-positions-websocket-subscription">WebSocket subscription</h3>
+<p>Similar to the orders channel, there are several subscription granularities when subscribing to the <a href="https://www.okx.com/docs-v5/en/#trading-account-websocket-positions-channel"><code>positions</code></a> channel.&nbsp;</p>
+
+<p>This endpoint returns mark price and other parameters which are constantly updated. OKX regularly sends updated data to users.</p>
+
+<p>To subscribe to the above BTC-USDT-SWAP position updates, users can 
+send one of the following requests after connecting to and logging into 
+the private WebSocket:&nbsp;</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td></td>
+            <td><strong>Instrument Type</strong></td>
+            <td><strong>Instrument Type + Instrument Family</strong><strong><br></strong><strong>(Derivatives only)</strong>
+            </td>
+            <td><strong>Instrument Type + Instrument ID</strong></td>
+        </tr>
+        <tr>
+            <td>Request</td>
+            <td>{<br>&nbsp;&nbsp;"op": "subscribe",<br>&nbsp;&nbsp;"args":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "positions",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instType":
+                "SWAP"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+            <td>{<br>&nbsp;&nbsp;"op": "subscribe",<br>&nbsp;&nbsp;"args":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "positions",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instType":
+                "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instFamily":
+                "BTC-USDT"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+            <td>{<br>&nbsp;&nbsp;"op": "subscribe",<br>&nbsp;&nbsp;"args":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "positions",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instType":
+                "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instId":
+                "BTC-USDT-SWAP"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+        </tr>
+        <tr>
+            <td>Successful&nbsp;response</td>
+            <td>{<br>&nbsp;&nbsp;"event": "subscribe",<br>&nbsp;&nbsp;"arg": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "positions",<br>&nbsp;&nbsp;&nbsp;&nbsp;"instType": "SWAP"<br>&nbsp;&nbsp;}<br>}</td>
+            <td>{<br>&nbsp;&nbsp;"event": "subscribe",<br>&nbsp;&nbsp;"args":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "positions",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instType":
+                "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instFamily":
+                "BTC-USDT"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+            <td>{<br>&nbsp;&nbsp;"event": "subscribe",<br>&nbsp;&nbsp;"args":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "positions",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instType":
+                "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instId":
+                "BTC-USDT-SWAP"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Pass <code>ANY</code> as instType to subscribe to positions of all product types at once.</p>
+<h3 id="trading-account-and-positions-information-positions-initial-snapshot">Initial snapshot</h3>
+<p>The positions channel will publish an initial snapshot for the non-zero positions, i.e. pos &gt; 0 or pos &lt; 0.&nbsp;</p>
+
+<p>In relation to the previous BTC-USDT-SWAP cross margin order (with 
+position net mode) example, the following sample message is expected 
+(subscribed by instrument type + instrument family):</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td>{<br>&nbsp;&nbsp;"arg": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"channel":
+                "positions",<br>&nbsp;&nbsp;&nbsp;&nbsp;"instType": "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;"instFamily":
+                "BTC-USDT"<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"data":
+                [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"adl":
+                "2",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"availPos":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"avgPx":
+                "50912.4",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"cTime":
+                "1615170596148",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ccy":
+                "USDT",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"imr":
+                "165.15734103333082",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instId":
+                "BTC-USDT-SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"instType":
+                "SWAP",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"interest":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"last":
+                "51000",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lever":
+                "3",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"liab":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"liabCcy":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"liqPx": "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"margin":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mgnMode":
+                "cross",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mgnRatio":
+                "0",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mmr":
+                "1.98188809239997",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"optVal":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pTime":
+                "1615196199624",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pos":
+                "1",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"posCcy":
+                "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"posId":
+                "287999792370819074",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"posSide":
+                "net",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tradeId":
+                "60477021",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"uTime":
+                "1615170598022",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"upl":
+                "0.4520230999924388",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"uplRatio":
+                "0.0027394232555804"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}</td>
+        </tr>
+    </tbody>
+</table>
+<h3 id="trading-account-and-positions-information-positions-subsequent-updates">Subsequent updates</h3>
+<p>Similar to the account channel, subsequent users will receive positions updates driven by the following:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Event-driven updates</td>
+<td style="text-align: left">Updates driven by events such as opening 
+and closing positions. Multiple events (e.g. multiple orders being 
+executed at the same time) may be aggregated into one single position 
+update.&nbsp;<br> Only affected position data will be published, including when the position is closed (i.e., changes to zero).</td>
+</tr>
+<tr>
+<td style="text-align: left">Fixed time updates</td>
+<td style="text-align: left">Updates pushed at a regular interval (5 seconds as of writing).  <br>All non-zero positions that matched the subscription granularity will be pushed.</td>
+</tr>
+</tbody></table>
+<h3 id="trading-account-and-positions-information-positions-position-id">Position ID</h3>
+<p>There is a Position ID (<code>posId</code>) field included in each 
+set of position data that can be used as an optional query parameter 
+when invoking the REST API as shown in the following section.</p>
+
+<p>This field is uniquely generated by combining the below attributes of a position:  <code>mgnMode</code>, <code>posSide</code>, <code>instId</code>, and <code>ccy</code>
+ are included in the data to uniquely identify the position in the same 
+account. It does not change after closing and reopening the position. A 
+new position ID may be generated for positions that have been closed for
+ a long period of time.</p>
+<h3 id="trading-account-and-positions-information-positions-rest-api">REST API</h3>
+<p>Alternatively, users can still invoke the REST API for non-zero positions:</p>
+
+<p><a href="https://www.okx.com/docs-v5/en/#trading-account-rest-api-get-positions"><code>GET /api/v5/account/positions</code></a></p>
+
+<p>The following granularity is available:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left"><strong>Granularity</strong></th>
+<th style="text-align: left"><strong>Sample Request</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Instrument type</td>
+<td style="text-align: left"><code>GET /api/v5/account/positions?instType=SWAP</code></td>
+</tr>
+<tr>
+<td style="text-align: left">Instrument ID</td>
+<td style="text-align: left"><code>GET /api/v5/account/positions?instId=BTC-USDT-SWAP</code></td>
+</tr>
+<tr>
+<td style="text-align: left">Position ID (single)</td>
+<td style="text-align: left"><code>GET /api/v5/account/positions?posId=287999792370819074</code></td>
+</tr>
+<tr>
+<td style="text-align: left">Position ID (multiple, max 20)</td>
+<td style="text-align: left"><code>GET /api/v5/account/positions?posId=287999792370819074,289098391880081414</code></td>
+</tr>
+</tbody></table>
+
+<p>Unlike the positions channel in WebSocket, whether it is closed or 
+not, position will always be returned if it is specified in the 
+parameter posId in the REST API as long as the position has been opened 
+before.</p>
+<h2 id="trading-account-and-positions-information-reconciliation-between-fill-and-positions">Reconciliation between fill and positions</h2>
+<p>With the introduction of trade ID (<code>tradeId</code>) in the 
+positions channel, it is possible to reconcile order fill (from orders 
+channel) and positions. A possible use case is deriving the position 
+from order fills.</p>
+
+<p>Trade ID uniqueness is per <code>instId</code>.</p>
+
+<p>A new order fill always comes with a newer trade ID, thus, users can 
+make use of this to match the relevant position/order fill and compare 
+the tradeID to determine which data is newer.</p>
+
+<p>However, there are few pitfalls:</p>
+
+<ul>
+<li>  Not every order update can be matched to a positions update as 
+multiple position changes can be aggregated into one message — i.e., 
+only last <code>tradeId</code> is received.</li>
+<li>  Liquidation or ADL does not generate an order update (as the order is determined by the system).</li>
+<li>  Positions update caused by liquidation or ADL does not update <code>tradeId</code>.</li>
+</ul>
+
+<p>To reconcile between fill and positions properly, users must take 
+into consideration the above pitfalls and compare the position (or make 
+use of position updated timestamp (<code>uTime</code>)) apart from comparing <code>tradeId</code>.</p>
+
+<p>For example, assume all sequences below are on the same instrument with the same margin mode and the position is in net mode.</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td><strong>Seq.</strong></td>
+            <td><strong>Channel</strong></td>
+            <td><strong>Data</strong></td>
+            <td><strong>Reconciled Position</strong></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>order</td>
+            <td>fillSz=20, side=buy, tradeId=150</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>positions</td>
+            <td>pos=20, tradeId=150, uTime=1614859751636</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>positions</td>
+            <td>pos=18, tradeId=151, uTime=1614859752637</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>order</td>
+            <td>fillSz=2, side=sell, tradeId=151</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>order</td>
+            <td>fillSz=3, side=sell, tradeId=156</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>order</td>
+            <td>fillSz=1, side=sell, tradeId=158</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>positions</td>
+            <td>pos=10, tradeId=163, uTime=1614859755037</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>order</td>
+            <td>fillSz=1, side=sell, tradeId=159</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>order</td>
+            <td>fillSz=3, side=sell, tradeId=163</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>positions</td>
+            <td>pos=10, tradeId=163, uTime=1614859755037</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>positions</td>
+            <td>pos=6, tradeId=163, uTime=1614866547430</td>
+            <td>6</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Users can observe that:</p>
+
+<ul>
+<li>  Single positions update #7 with <code>tradeId</code>=163 means order updates with <code>tradeId</code>&lt;=163 can be ignored when reconciling the position — i.e., order update #8 and #9 are ignored in this case.</li>
+<li>  Positions update #10 has the same <code>tradeId</code> and <code>pos</code> (as well as <code>uTime</code>) as #7, so it can be assumed #10 is from a fixed time update in a regular interval.</li>
+<li>  Positions update #11 has the same <code>tradeId</code>=163, but a different position (and newer <code>uTime</code>), so it can be assumed that this is triggered by partial liquidation or ADL.</li>
+</ul>
+<h1 id="identifiers">Identifiers</h1>
+<table><thead>
+<tr>
+<th>Identifier</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ordId</td>
+<td>Order ID, globally unique</td>
+</tr>
+<tr>
+<td>clOrdId</td>
+<td>Client Order ID as assigned by the client, unique across all pending orders of all symbols</td>
+</tr>
+<tr>
+<td>billId</td>
+<td>Bill ID, globally unique</td>
+</tr>
+<tr>
+<td>tradeId</td>
+<td>Last trade ID, unique per symbol. <br>For liquidation and ADL 
+scenarios, the tradeId will be assigned a negative value to distinguish 
+it from other matching transaction scenarios.</td>
+</tr>
+<tr>
+<td>posId</td>
+<td>Position ID. This is uniquely generated by combining the below attributes: <code>mgnMode</code>, <code>posSide</code>, <code>instId</code>, and <code>ccy</code>. It does not change after closing and reopening the position. <br>A
+ new position ID may be generated for positions that have been closed 
+for a long period of time; when switching account mode or position mode,
+ the system will also generate a new position ID.</td>
+</tr>
+</tbody></table>
+<h1 id="system-status">System status</h1>
+<p>Users can get the exchange status from <a href="https://www.okx.com/docs-v5/en/#status-get-status"><code>GET /api/v5/system/status</code></a>.</p>
+
+<p>Subsequent updates will be published from the websocket <a href="https://www.okx.com/docs-v5/en/#status-ws-status-channel"><code>status</code></a> channel.</p>
+
+<p>Planned system maintenance that may result in short interruption 
+(lasting less than 5 seconds) or websocket disconnection (users can 
+immediately reconnect) will not be announced. The maintenance will only 
+be performed during times of low market volatility.</p>
+
+        </div>
+        <div class="dark-box">
+        </div>
+    </div>
+    <!-- monitor page -->
+        <script>
+          window.okGlobal = { envSign: 'prod' };
+        </script>
+        <script src="best_practice_files/index_002.js"></script>
+        <script src="best_practice_files/index.js"></script>
+
+  
+
+</body></html>

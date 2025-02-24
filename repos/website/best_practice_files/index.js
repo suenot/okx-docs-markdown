@@ -1,0 +1,2 @@
+(()=>{"use strict";var e={act:function(){}};if("undefined"!==typeof window){var o=window.utils.monitor,a=window.okGlobal.site,i=(void 0===a?{}:a).sign,n=void 0===i?"okex":i;e=o.newInstance({site:n.toLocaleLowerCase(),product:"basic_trading"})}var t=e;!function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},o=e.from_page;t.act({action:"APIDocs_Full_Page_View",anchor:"APIDocs_Full_Page_View",params:{from_page:o},actionType:"Show",elementType:"Show"})}({from_page:document.referrer})})();
+//# sourceMappingURL=index.js.map

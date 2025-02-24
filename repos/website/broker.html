@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Broker Program – OKX API guide | OKX technical support | OKX</title>
+    <meta name="description" content="Welcome to the OKX API guide, OKX technical support. OKX is a leading BTC exchange with highly secure SSL encryption and cold storage etc for crypto trading.">
+    <meta name="keywords" content="OKX API guide, OKX technical support">
+
+    <link rel="shortcut icon" href="https://static.coinall.ltd/cdn/assets/imgs/221/A73079733B3789DA.png" type="image/png">
+      <link rel="canonical" href="https://www.okx.com/docs-v5/broker_en/">
+      <link rel="alternate" href="https://www.okx.com/docs-v5/broker_zh/" hreflang="zh-Hans">
+      <link rel="alternate" href="https://www.okx.com/docs-v5/broker_en/" hreflang="en">
+      <link rel="alternate" href="https://www.okx.com/docs-v5/broker_en/" hreflang="x-default">
+    <style media="screen">
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="broker_files/screen-0cf183b4.css" rel="stylesheet" media="screen">
+    <link href="broker_files/print-2731ee0a.css" rel="stylesheet" media="print">
+      <script type="text/javascript" integrity="sha384-Zjo8RUFg5Yqd1RrmP6raXmuRVOWdstZw1jbsr6ssfu0KGRWb0JixIs3Kvj6MPBMJ" crossorigin="anonymous" async="" src="broker_files/amplitude-8.2.3-min.gz.js"></script><script src="broker_files/all_nosearch-30221305.js"></script>
+
+    <script>
+      var currentHref = window.location.href;
+      var pathname = window.location.pathname;
+      var pathArr = pathname.split('/').reverse();
+      var modules = ['en', 'broker_en', 'trick_en', 'log_en'];
+      var moduleType = pathArr[1];
+      var moduleIndex = modules.indexOf(moduleType);
+      var switchLanguage = true;
+      $(function() {
+        setupCodeCopy();
+        $('.toc-nav-list li').removeClass("selected").eq(moduleIndex).addClass('selected');
+        $('.toc-nav-dropdown option').removeAttr("selected").eq(moduleIndex).prop('selected', true);
+      });
+      function changeHyperlink() {
+        if(switchLanguage) {
+            switchLanguage = false;
+            var hash = window.location.hash;
+            window.location.href = pathname.replace("en","zh") + hash;
+        }
+      }
+      function changeMenuLink(type) {
+        pathArr[1] = type;
+        window.location.href = pathArr.reverse().join('/');
+      }
+    </script>
+    <style>
+    .content aside.notice:before {
+        content: '';
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        background-image: url("data:image/image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAD1BMVEUAAAAgX+wgYOsgYOsgX+zxKDX3AAAABHRSTlMAv4BAMM4GbAAAAIhJREFUKM+NkcsRgCAMRP0V4GgK0BkK8GABBum/JgdYFxQO5AL7CEtm6Rpr3EWXI9PifG0/7ewLToe60eBY0WaCYotJQL0ewnaN+OCNGQvfsAITWqRRJGzANYGJIPZemKYGJAdaAwaAz54AHKzHiQkccQAgRflMTpPoVERYD5kJKL9qgC6+sq0e+31Meuswx+MAAAAASUVORK5CYII=");
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        padding: 0;
+        margin-right: 7px;
+        vertical-align: text-bottom;
+      }
+  .content aside.warning:before {
+      content: '';
+      display: inline-block;
+      height: 16px;
+      width: 16px;
+      background-image: url("data:image/image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAD1BMVEUAAADjYGDjXl7jXV3jXl6rsL0UAAAABHRSTlMAQIC/o1TdDAAAAIpJREFUKM+dkd0NgCAMhAEdwL8BNHEAjQ7gz+0/k4HDFsML8Z7gS3twrSlW236u3Q7co94dgoRYRDURzAC2DcCVFBijJbWCQzrQWEgPCMTWKeDLVQoW70ng8LoOrCU4/wGarr2YVki0yMduHYlNPRiOJw1X86can8F3htWeQLMh52sQ4hc1Zass1ANrMkLgf7knqgAAAABJRU5ErkJggg==");
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      padding: 0;
+      margin-right: 7px;
+      vertical-align: text-bottom;
+    }
+    .toc-wrapper .search:before {
+        content: '';
+        height: 12px;
+        width: 12px;
+        background-image: url("data:image/image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAD1BMVEUAAAD///////////////+PQt5oAAAABHRSTlMAgL9ARyeO/QAAAKpJREFUKM9lkdENwyAMRE3oAE3FAFFhABQxQEpu/5naXjGulfsyjztjZPkq7sBaZSoWfPS6/59JFDTAkQgg17gCqAQ3gOkAHASJVhadFzSw+mUW616wscVhz51MjoSaC4NjgE4gHsAA6yvwEd80ECRsE/DZpoNxRj96Ioj2uVGV+f1RLONiBwEzWLkJDTeoLEz1pJZQeK7BdvN49lxFpsVmx2kn24S3iFfKb13fLBtfa1iNAAAAAElFTkSuQmCC");
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      top: 19px
+    }
+    </style>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;python&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="broker_files/navbar-cad8cdcb.png" alt="">
+      </span>
+    </a>
+    <header>
+    <div class="toc-left">
+      <a href="https://www.okx.com/">
+        <img src="broker_files/187957948BD02D97.png" class="logo" alt="">
+      </a>
+      <div class="toc-split-line"></div>
+      <ul class="toc-nav-list">
+        <li class=""><a href="https://www.okx.com/docs-v5/en">API</a></li>
+        <li class="selected"><a href="https://www.okx.com/docs-v5/broker_en">Broker</a></li>
+        <li><a href="https://www.okx.com/docs-v5/trick_en">Best Practice</a></li>
+        <li><a href="https://www.okx.com/docs-v5/log_en">Change Log</a></li>
+      </ul>
+      <select class="toc-nav-dropdown" onchange="javascript:changeMenuLink(options[selectedIndex].value)">
+        <option value="en">API</option>
+        <option value="broker_en" selected="selected">Broker</option>
+        <option value="trick_en">Best Practice</option>
+        <option value="log_en">Change Log</option>
+      </select>
+    </div>
+      <div class="switch-language">
+        <a onclick="javascript:changeHyperlink()" class="toc-link" style="display: inline-block;" href="javascript:void(0);">中文</a>
+      </div>
+    </header>
+    <div class="toc-wrapper">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell" class="active">HTTP</a>
+                <a href="#" data-language-name="python">Python</a>
+          </div>
+        <ul id="toc" class="toc-list-h1">
+            <li>
+              <a href="#broker-program" class="toc-h1 toc-link active" data-title="Broker Program">Broker Program</a>
+            </li>
+            <li>
+              <a href="#broker-guide" class="toc-h1 toc-link" data-title="Broker guide">Broker guide</a>
+                <ul class="toc-list-h2">
+                    <li>
+                      <a href="#broker-guide-get-rebate-guide" class="toc-h2 toc-link" data-title="Get rebate guide">Get rebate guide</a>
+                    </li>
+                    <li>
+                      <a href="#broker-guide-common-v5-api-for-brokers" class="toc-h2 toc-link" data-title="Common V5 API for brokers">Common V5 API for brokers</a>
+          <ul class="toc-list-h3">
+              <li>
+                <a href="#broker-guide-common-v5-api-for-brokers-core-trading" class="toc-h3 toc-link" data-title="Core trading">Core trading</a>
+              </li>
+              <li>
+                <a href="#broker-guide-common-v5-api-for-brokers-algo-trading" class="toc-h3 toc-link" data-title="Algo trading">Algo trading</a>
+              </li>
+              <li>
+                <a href="#broker-guide-common-v5-api-for-brokers-grid-trading" class="toc-h3 toc-link" data-title="Grid trading">Grid trading</a>
+              </li>
+              <li>
+                <a href="#broker-guide-common-v5-api-for-brokers-recurring-buy" class="toc-h3 toc-link" data-title="Recurring Buy">Recurring Buy</a>
+              </li>
+              <li>
+                <a href="#broker-guide-common-v5-api-for-brokers-block-trading" class="toc-h3 toc-link" data-title="Block trading">Block trading</a>
+              </li>
+              <li>
+                <a href="#broker-guide-common-v5-api-for-brokers-spread-trading" class="toc-h3 toc-link" data-title="Spread Trading">Spread Trading</a>
+              </li>
+              <li>
+                <a href="#broker-guide-common-v5-api-for-brokers-convert" class="toc-h3 toc-link" data-title="Convert">Convert</a>
+              </li>
+              <li>
+                <a href="#broker-guide-common-v5-api-for-brokers-financial-product" class="toc-h3 toc-link" data-title="Financial Product">Financial Product</a>
+              </li>
+          </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#dma-broker" class="toc-h1 toc-link" data-title="DMA Broker">DMA Broker</a>
+                <ul class="toc-list-h2">
+                    <li>
+                      <a href="#dma-broker-common-v5-api-for-brokers-get-sub-account-list" class="toc-h2 toc-link" data-title="Get sub-account list">Get sub-account list</a>
+                    </li>
+                    <li>
+                      <a href="#dma-broker-common-v5-api-for-brokers-get-sub-account-fee-rates" class="toc-h2 toc-link" data-title="Get sub-account fee rates">Get sub-account fee rates</a>
+                    </li>
+                    <li>
+                      <a href="#dma-broker-common-v5-api-for-brokers-create-an-api-key-for-a-sub-account" class="toc-h2 toc-link" data-title="Create an API Key for a sub-account">Create an API Key for a sub-account</a>
+                    </li>
+                    <li>
+                      <a href="#dma-broker-common-v5-api-for-brokers-query-the-api-key-of-a-sub-account" class="toc-h2 toc-link" data-title="Query the API Key of a sub-account">Query the API Key of a sub-account</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#fully-disclosed-broker-api-and-oauth" class="toc-h1 toc-link" data-title="Fully Disclosed Broker (API and Oauth)">Fully Disclosed Broker (API and Oauth)</a>
+                <ul class="toc-list-h2">
+                    <li>
+                      <a href="#fully-disclosed-broker-api-and-oauth-introduction" class="toc-h2 toc-link" data-title="Introduction">Introduction</a>
+                    </li>
+                    <li>
+                      <a href="#fully-disclosed-broker-api-and-oauth-oauth-broker" class="toc-h2 toc-link" data-title="OAuth Broker">OAuth Broker</a>
+          <ul class="toc-list-h3">
+              <li>
+                <a href="#fully-disclosed-broker-api-and-oauth-oauth-broker-introduction" class="toc-h3 toc-link" data-title="Introduction">Introduction</a>
+              </li>
+              <li>
+                <a href="#fully-disclosed-broker-api-and-oauth-oauth-broker-preparation-before-integration" class="toc-h3 toc-link" data-title="Preparation before Integration">Preparation before Integration</a>
+              </li>
+              <li>
+                <a href="#fully-disclosed-broker-api-and-oauth-oauth-broker-introduction-of-authorization-mode" class="toc-h3 toc-link" data-title="Introduction of authorization mode">Introduction of authorization mode</a>
+              </li>
+              <li>
+                <a href="#fully-disclosed-broker-api-and-oauth-oauth-broker-usage-of-token" class="toc-h3 toc-link" data-title="Usage of Token">Usage of Token</a>
+              </li>
+              <li>
+                <a href="#fully-disclosed-broker-api-and-oauth-oauth-broker-permissions" class="toc-h3 toc-link" data-title="Permissions">Permissions</a>
+              </li>
+              <li>
+                <a href="#fully-disclosed-broker-api-and-oauth-oauth-broker-fast-api" class="toc-h3 toc-link" data-title="Fast API">Fast API</a>
+              </li>
+          </ul>
+                    </li>
+                    <li>
+                      <a href="#fully-disclosed-broker-api-and-oauth-broker-commision-api" class="toc-h2 toc-link" data-title="Broker Commision API">Broker Commision API</a>
+          <ul class="toc-list-h3">
+              <li>
+                <a href="#fully-disclosed-broker-api-and-oauth-broker-commision-api-get-download-link-fd" class="toc-h3 toc-link" data-title="Get download link (FD)">Get download link (FD)</a>
+              </li>
+              <li>
+                <a href="#fully-disclosed-broker-api-and-oauth-broker-commision-api-create-rebate-details-download-link-fd" class="toc-h3 toc-link" data-title="Create rebate details download link (FD)">Create rebate details download link (FD)</a>
+              </li>
+              <li>
+                <a href="#fully-disclosed-broker-api-and-oauth-broker-commision-api-get-the-user-39-s-broker-rebate-information" class="toc-h3 toc-link" data-title="Get the user's broker rebate information">Get the user's broker rebate information</a>
+              </li>
+          </ul>
+                    </li>
+                    <li>
+                      <a href="#fully-disclosed-broker-api-and-oauth-error-code" class="toc-h2 toc-link" data-title="Error Code">Error Code</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+        <div class="dark-box"></div>
+        <div class="content" style="padding-bottom: 841px;">
+          <h1 id="broker-program">Broker Program</h1>
+<p>If your business platform offers cryptocurrency services, you can 
+apply to join the OKX Broker Program, become our partner broker, enjoy 
+exclusive broker services, and earn high rebates through trading fees 
+generated by OKX users.<br>
+The Broker Program includes, and is not limited to, integrated trading 
+platforms, trading bots, copy trading platforms, trading bot providers, 
+quantitative strategy institutions, asset management platforms etc.<br></p>
+
+<ul>
+<li><a href="https://www.okx.com/broker/home">Click to apply</a></li>
+<li><a href="https://www.okx.com/help/introduction-of-rules-on-okx-brokers">Broker rules</a></li>
+<li>If you have any questions, feel free to contact our customer support.</li>
+</ul>
+
+<p>Relevant information for specific Broker Program documentation and 
+product services will be provided following successful applications.<br></p>
+<h1 id="broker-guide">Broker guide</h1><h2 id="broker-guide-get-rebate-guide">Get rebate guide</h2>
+<p>When an OKX broker is using any of our V5 APIs, there is a tag field.
+ Do make sure to use your unique broker code in order to ensure we know 
+the volume is coming from your end.<br> 
+This code can be seen in your Broker Dashboard<br>
+With the broker code attached, brokers will be able to receive commissions and able to track the trading data on the dashboard</p>
+<h2 id="broker-guide-common-v5-api-for-brokers">Common V5 API for brokers</h2>
+<p>When the OKX Broker broker calls the OKX V5 API interface, when the request parameter has <code>tag</code>, please be sure to enter your exclusive Broker code information to realize the association between the order and the broker.<br>
+When the order is entered into the <code>Brokercode</code> information, the broker can enjoy the corresponding commission reward, data statistics and other specific logic tracking.<br></p>
+<h3 id="broker-guide-common-v5-api-for-brokers-core-trading">Core trading</h3>
+<p><a href="https://www.okx.com/docs-v5/en/#order-book-trading">More details</a></p>
+
+<ul>
+<li><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-post-place-order">Place order</a></li>
+<li><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-post-place-multiple-orders">Place multiple orders</a></li>
+<li><a href="https://www.okx.com/docs-v5/en/#order-book-trading-trade-post-close-positions">Close positions</a></li>
+</ul>
+<h3 id="broker-guide-common-v5-api-for-brokers-algo-trading">Algo trading</h3>
+<p><a href="https://www.okx.com/docs-v5/en/#order-book-trading-algo-trading-post-place-algo-order">More details</a></p>
+
+<ul>
+<li><a href="https://www.okx.com/docs-v5/en/#order-book-trading-algo-trading-post-place-algo-order">Place algo order</a></li>
+</ul>
+<h3 id="broker-guide-common-v5-api-for-brokers-grid-trading">Grid trading</h3>
+<p><a href="https://www.okx.com/docs-v5/en/#order-book-trading-grid-trading-post-place-grid-algo-order">More details</a></p>
+
+<ul>
+<li><a href="https://www.okx.com/docs-v5/en/#order-book-trading-grid-trading-post-place-grid-algo-order">Place grid algo order</a></li>
+</ul>
+<h3 id="broker-guide-common-v5-api-for-brokers-recurring-buy">Recurring Buy</h3>
+<p><a href="https://www.okx.com/docs-v5/en/#order-book-trading-recurring-buy">More details</a></p>
+
+<ul>
+<li><a href="https://www.okx.com/docs-v5/en/#order-book-trading-recurring-buy-post-place-recurring-buy-order">Place recurring buy order</a></li>
+</ul>
+<h3 id="broker-guide-common-v5-api-for-brokers-block-trading">Block trading</h3>
+<p><a href="https://www.okx.com/docs-v5/en/#block-trading">More details</a></p>
+
+<ul>
+<li><a href="https://www.okx.com/docs-v5/en/#block-trading-rest-api-create-rfq">Create RFQ</a></li>
+</ul>
+<h3 id="broker-guide-common-v5-api-for-brokers-spread-trading">Spread Trading</h3>
+<p><a href="https://www.okx.com/docs-v5/en/#spread-trading">More details</a></p>
+
+<ul>
+<li><a href="https://www.okx.com/docs-v5/en/#spread-trading-rest-api-place-order">Spread Trading Place order</a></li>
+</ul>
+<h3 id="broker-guide-common-v5-api-for-brokers-convert">Convert</h3>
+<p><a href="https://www.okx.com/docs-v5/en/#funding-account">More details</a></p>
+
+<ul>
+<li><a href="https://www.okx.com/docs-v5/en/#funding-account-rest-api-estimate-quote">Estimate quote</a></li>
+<li><a href="https://www.okx.com/docs-v5/en/#funding-account-rest-api-convert-trade">Convert trade</a></li>
+</ul>
+<h3 id="broker-guide-common-v5-api-for-brokers-financial-product">Financial Product</h3>
+<p><a href="https://www.okx.com/docs-v5/en/#financial-product-earn">More details</a></p>
+
+<ul>
+<li><a href="https://www.okx.com/docs-v5/en/#financial-product-earn-post-purchase">Earn product</a></li>
+</ul>
+<h1 id="dma-broker">DMA Broker</h1><h3 id="dma-broker-common-v5-api-for-brokers-get-sub-account-list">Get sub-account list</h3><h4 id="dma-broker-common-v5-api-for-brokers-get-sub-account-list-rate-limit-1-request-per-second">Rate Limit: 1 request per second</h4><h4 id="dma-broker-common-v5-api-for-brokers-get-sub-account-list-rate-limit-rule-user-id">Rate limit rule: User ID</h4><h4 id="dma-broker-common-v5-api-for-brokers-get-sub-account-list-permission-read">Permission: Read</h4><h4 id="dma-broker-common-v5-api-for-brokers-get-sub-account-list-http-request">HTTP Request</h4>
+<p><code>GET /api/v5/broker/dma/subaccount-info</code></p>
+
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell" style=""><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code>GET /api/v5/broker/dma/subaccount-info
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python" style="display: none;"><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code><span class="kn">import</span> <span class="nn">okx.NDBroker</span> <span class="k">as</span> <span class="n">NDBroker</span>
+
+<span class="c1"># API initialization
+</span><span class="n">apikey</span> <span class="o">=</span> <span class="s">"YOUR_API_KEY"</span>
+<span class="n">secretkey</span> <span class="o">=</span> <span class="s">"YOUR_SECRET_KEY"</span>
+<span class="n">passphrase</span> <span class="o">=</span> <span class="s">"YOUR_PASSPHRASE"</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="s">"1"</span>  <span class="c1"># Production trading: 0, Demo trading: 1
+</span>
+<span class="n">ndBrokerAPI</span> <span class="o">=</span> <span class="n">NDBroker</span><span class="p">.</span><span class="n">NDBrokerAPI</span><span class="p">(</span><span class="n">apikey</span><span class="p">,</span> <span class="n">secretkey</span><span class="p">,</span> <span class="n">passphrase</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+
+<span class="c1"># Get sub-account list
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">ndBrokerAPI</span><span class="p">.</span><span class="n">get_subaccount_info</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div><h4 id="dma-broker-common-v5-api-for-brokers-get-sub-account-list-request-parameters">Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">subAcct</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Sub-account name</td>
+</tr>
+<tr>
+<td style="text-align: left">uid</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Sub-account UID</td>
+</tr>
+<tr>
+<td style="text-align: left">page</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Page for pagination</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Number of results per request. The maximum is <code>100</code>; the default is <code>100</code></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"acctLv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"canTransOut"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"mainAcct"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"enable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"frozenFunc"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"subAcct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"h*******5"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1648521249000"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"289*********1696"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"totalPage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id="dma-broker-common-v5-api-for-brokers-get-sub-account-list-response-parameters">Response Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left"><strong>Parameter</strong></th>
+<th style="text-align: left"><strong>Type</strong></th>
+<th style="text-align: left"><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">totalPage</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Total number of pages</td>
+</tr>
+<tr>
+<td style="text-align: left">page</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Current page number</td>
+</tr>
+<tr>
+<td style="text-align: left">details</td>
+<td style="text-align: left">Array</td>
+<td style="text-align: left">List of sub-accounts</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; subAcct</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Sub-account name</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; uid</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Sub-account UID</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; label</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Sub-account notes</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; acctLv</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Account level<br><code>1</code>: Spot mode<br><code>2</code>: Spot and futures mode<br><code>3</code>: Multi-currency margin<br><code>4</code>：Portfolio margin</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; enable</td>
+<td style="text-align: left">Boolean</td>
+<td style="text-align: left">Sub-account status<br><code>true</code>: normal<br><code>false</code>: frozen (global)</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; frozenFunc</td>
+<td style="text-align: left">Array of string</td>
+<td style="text-align: left">Frozen functions<br><code>trading</code><br><code>convert</code><br><code>transfer</code><br><code>withdrawal</code><br><code>deposit</code><br><code>flexible_loan</code></td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; canTransOut</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Whether the sub-account has the right to transfer out.(Directly transfer to another sub account through the sub account APIKey）<br><code>true</code>: can transfer out <br><code>false</code>: cannot transfer out</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; mainAcct</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Main account name of the second-level sub-account <br>It is the first-level sub-account when <code>mainAcct</code> is ""<br>It is the second-level sub-account when <code>mainAcct</code> has value.</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; ts</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Creation time of sub-account, Unix timestamp format in milliseconds, e.g. <code>1597026383085</code></td>
+</tr>
+</tbody></table>
+<h3 id="dma-broker-common-v5-api-for-brokers-get-sub-account-fee-rates">Get sub-account fee rates</h3><h4 id="dma-broker-common-v5-api-for-brokers-get-sub-account-fee-rates-rate-limit-1-request-per-second">Rate Limit: 1 request per second</h4><h4 id="dma-broker-common-v5-api-for-brokers-get-sub-account-fee-rates-rate-limit-rule-user-id">Rate limit rule: User ID</h4><h4 id="dma-broker-common-v5-api-for-brokers-get-sub-account-fee-rates-permission-read">Permission: Read</h4><h4 id="dma-broker-common-v5-api-for-brokers-get-sub-account-fee-rates-http-request">HTTP Request</h4>
+<p><code>GET /api/v5/broker/dma/subaccount-trade-fee</code></p>
+
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell" style=""><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code>GET /api/v5/broker/dma/subaccount-trade-fee
+</code></pre></div><h4 id="dma-broker-common-v5-api-for-brokers-get-sub-account-fee-rates-request-parameters">Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">subAcct</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Sub-account name</td>
+</tr>
+<tr>
+<td style="text-align: left">uid</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Sub-account UID</td>
+</tr>
+<tr>
+<td style="text-align: left">page</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Page for pagination</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Number of results per request. The maximum is <code>100</code>; the default is <code>100</code></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"feeRates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"marker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0008"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"taker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.001"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"marker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0005"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"taker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0007"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"marker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0002"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"taker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0005"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"marker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0002"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"taker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0005"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"marker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0002"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"taker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0005"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"marker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0002"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"taker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0005"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"marker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0002"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"taker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0005"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"marker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0002"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"taker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0005"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"marker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0002"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"taker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0003"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"mainAcct"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"subAcct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subaccount111ad"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1658287703000"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"335748406955877155"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"totalPage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id="dma-broker-common-v5-api-for-brokers-get-sub-account-fee-rates-response-parameters">Response Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left"><strong>Parameter</strong></th>
+<th style="text-align: left"><strong>Type</strong></th>
+<th style="text-align: left"><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">totalPage</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Total number of pages</td>
+</tr>
+<tr>
+<td style="text-align: left">page</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Current page number</td>
+</tr>
+<tr>
+<td style="text-align: left">details</td>
+<td style="text-align: left">Array</td>
+<td style="text-align: left">List of sub-accounts</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; subAcct</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Sub-account name</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; uid</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Sub-account UID</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; mainAcct</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Main account name of the second-level sub-account <br>It is the first-level sub-account when <code>mainAcct</code> is ""<br>It is the second-level sub-account when <code>mainAcct</code> has value.</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; ts</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Creation time of sub-account, Unix timestamp format in milliseconds, e.g. <code>1597026383085</code></td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; feeRates</td>
+<td style="text-align: left">Array</td>
+<td style="text-align: left">Fee rates</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; type</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Fee type<br><code>1</code> SPOT and MARGIN USDT trading pairs<br><code>2</code> SPOT and MARGIN USDⓈ&amp;Crypto trading pairs/Crypto<br><code>3</code> FUTURES USDT-margined contracts<br><code>4</code> FUTURES USDC-margined contracts<br><code>5</code> FUTURES crypto-margined contracts<br><code>6</code> SWAP USDT-margined contracts<br><code>7</code> SWAP USDC-margined contracts<br><code>8</code> SWAP crypto-margined contracts币本位永续合约<br><code>9</code> OPTION</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; maker</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Taker fee rate</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; taker</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Maker fee rate</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+The fee rate like maker and taker: positive number, which means the rate
+ of rebate; negative number, which means the rate of commission.
+</aside>
+<h3 id="dma-broker-common-v5-api-for-brokers-create-an-api-key-for-a-sub-account">Create an API Key for a sub-account</h3><h4 id="dma-broker-common-v5-api-for-brokers-create-an-api-key-for-a-sub-account-rate-limit-40-requests-per-second">Rate limit：40 requests per second</h4><h4 id="dma-broker-common-v5-api-for-brokers-create-an-api-key-for-a-sub-account-rate-limit-rule-user-id">Rate limit rule: User ID</h4><h4 id="dma-broker-common-v5-api-for-brokers-create-an-api-key-for-a-sub-account-permission-trade">Permission: Trade</h4><h4 id="dma-broker-common-v5-api-for-brokers-create-an-api-key-for-a-sub-account-http-request">HTTP Request</h4>
+<p><code>POST /api/v5/broker/dma/subaccount/apikey</code></p>
+
+<blockquote>
+<p>Request sample</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell" style=""><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code>POST /api/v5/broker/dma/subaccount/apikey
+body
+<span class="o">{</span>
+    <span class="s2">"subAcct"</span>:<span class="s2">"panpanBroker2"</span>,
+    <span class="s2">"label"</span>:<span class="s2">"broker3"</span>,
+    <span class="s2">"passphrase"</span>:<span class="s2">"Qwr4321!"</span>,
+    <span class="s2">"perm"</span>:<span class="s2">"read_only,trade"</span>,
+    <span class="s2">"ip"</span>:<span class="s2">"10.0.108.9"</span>
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python" style="display: none;"><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code><span class="kn">import</span> <span class="nn">okx.NDBroker</span> <span class="k">as</span> <span class="n">NDBroker</span>
+
+<span class="c1"># API initialization
+</span><span class="n">apikey</span> <span class="o">=</span> <span class="s">"YOUR_API_KEY"</span>
+<span class="n">secretkey</span> <span class="o">=</span> <span class="s">"YOUR_SECRET_KEY"</span>
+<span class="n">passphrase</span> <span class="o">=</span> <span class="s">"YOUR_PASSPHRASE"</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="s">"1"</span>  <span class="c1"># Production trading: 0, Demo trading: 1
+</span>
+<span class="n">ndBrokerAPI</span> <span class="o">=</span> <span class="n">NDBroker</span><span class="p">.</span><span class="n">NDBrokerAPI</span><span class="p">(</span><span class="n">apikey</span><span class="p">,</span> <span class="n">secretkey</span><span class="p">,</span> <span class="n">passphrase</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+
+<span class="c1"># Create an API Key for a sub-account
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">ndBrokerAPI</span><span class="p">.</span><span class="n">create_subaccount_apikey</span><span class="p">(</span>
+    <span class="n">subAcct</span><span class="o">=</span><span class="s">"panpanBroker2"</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s">"broker3"</span><span class="p">,</span>
+    <span class="n">passphrase</span><span class="o">=</span><span class="s">"Qwr4321!"</span><span class="p">,</span>
+    <span class="n">perm</span><span class="o">=</span><span class="s">"trade"</span><span class="p">,</span>
+    <span class="n">ip</span><span class="o">=</span><span class="s">"10.0.108.9"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div><h4 id="dma-broker-common-v5-api-for-brokers-create-an-api-key-for-a-sub-account-request-parameters">Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">subAcct</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Yes</td>
+<td style="text-align: left">Sub-account name, supports 6 to 20 
+characters that include numbers and letters (case sensitive, space 
+character is not supported).</td>
+</tr>
+<tr>
+<td style="text-align: left">label</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Yes</td>
+<td style="text-align: left">API Key note<br>No more than 50 letters (case sensitive) or numbers, which can be pure letters or pure numbers.</td>
+</tr>
+<tr>
+<td style="text-align: left">passphrase</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Yes</td>
+<td style="text-align: left">API Key password, supports 8 to 32 
+alphanumeric characters containing at least 1 number, 1 uppercase 
+letter, 1 lowercase letter and 1 special character.</td>
+</tr>
+<tr>
+<td style="text-align: left">ip</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">Link IP addresses, separate with commas if more than one. Support up to 20 addresses.<br><font color="red"><b>For security reasons, it is recommended to bind IP addresses.</b></font><br><font color="red"><b>API
+ keys with trading or withdrawal permissions that are not bound to IPs 
+will expire after 14 days of inactivity. (API keys in demo trading will 
+not be deleted.)</b></font></td>
+</tr>
+<tr>
+<td style="text-align: left">perm</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">API Key permissions<br><code>read_only</code>: Read only, it is the default value and can't be removed <br><code>trade</code>: Trade<br><code>withdraw</code>: Withdraw</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Returned result</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nl">"subAcct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"panpanBroker2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"broker3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"****"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"secretKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"****"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"passphrase"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Qwr4321!"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"perm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"read_only,trade"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.0.108.9"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1597026383085"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id="dma-broker-common-v5-api-for-brokers-create-an-api-key-for-a-sub-account-response-parameters">Response parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left"><strong>Parameter</strong></th>
+<th style="text-align: left"><strong>Type</strong></th>
+<th style="text-align: left"><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">subAcct</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Sub-account name</td>
+</tr>
+<tr>
+<td style="text-align: left">label</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">API Key note</td>
+</tr>
+<tr>
+<td style="text-align: left">apiKey</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">API public key</td>
+</tr>
+<tr>
+<td style="text-align: left">secretKey</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">API private key</td>
+</tr>
+<tr>
+<td style="text-align: left">passphrase</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">API Key password</td>
+</tr>
+<tr>
+<td style="text-align: left">perm</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">API Key access <br> <code>read_only</code>: Read only  <code>trade</code>: Trade</td>
+</tr>
+<tr>
+<td style="text-align: left">ip</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">IP address that linked with API Key</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Creation time, Unix timestamp format in milliseconds, e.g. <code>1597026383085</code></td>
+</tr>
+</tbody></table>
+<h3 id="dma-broker-common-v5-api-for-brokers-query-the-api-key-of-a-sub-account">Query the API Key of a sub-account</h3><h4 id="dma-broker-common-v5-api-for-brokers-query-the-api-key-of-a-sub-account-rate-limit-1-request-per-second">Rate limit：1 request per second</h4><h4 id="dma-broker-common-v5-api-for-brokers-query-the-api-key-of-a-sub-account-rate-limit-rule-user-id">Rate limit rule: User ID</h4><h4 id="dma-broker-common-v5-api-for-brokers-query-the-api-key-of-a-sub-account-permission-read">Permission: Read</h4><h4 id="dma-broker-common-v5-api-for-brokers-query-the-api-key-of-a-sub-account-http-request">HTTP Request</h4>
+<p><code>GET /api/v5/broker/dma/subaccount/apikey</code></p>
+
+<blockquote>
+<p>Request sample</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell" style=""><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code>Get /api/v5/broker/dma/subaccount/apikey?subAcct<span class="o">=</span>panpanBroker2
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python" style="display: none;"><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code><span class="kn">import</span> <span class="nn">okx.NDBroker</span> <span class="k">as</span> <span class="n">NDBroker</span>
+
+<span class="c1"># API initialization
+</span><span class="n">apikey</span> <span class="o">=</span> <span class="s">"YOUR_API_KEY"</span>
+<span class="n">secretkey</span> <span class="o">=</span> <span class="s">"YOUR_SECRET_KEY"</span>
+<span class="n">passphrase</span> <span class="o">=</span> <span class="s">"YOUR_PASSPHRASE"</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="s">"1"</span>  <span class="c1"># Production trading: 0, Demo trading: 1
+</span>
+<span class="n">ndBrokerAPI</span> <span class="o">=</span> <span class="n">NDBroker</span><span class="p">.</span><span class="n">NDBrokerAPI</span><span class="p">(</span><span class="n">apikey</span><span class="p">,</span> <span class="n">secretkey</span><span class="p">,</span> <span class="n">passphrase</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+
+<span class="c1"># Query the API Key of a sub-account
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">ndBrokerAPI</span><span class="p">.</span><span class="n">get_subaccount_apikey</span><span class="p">(</span>
+    <span class="n">subAcct</span><span class="o">=</span><span class="s">"panpanBroker2"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div><h4 id="dma-broker-common-v5-api-for-brokers-query-the-api-key-of-a-sub-account-request-parameters">Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">subAcct</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Yes</td>
+<td style="text-align: left">Sub-account name</td>
+</tr>
+<tr>
+<td style="text-align: left">apiKey</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">No</td>
+<td style="text-align: left">API public key</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Returned results</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code><span class="p">{</span><span class="w">    
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="s2">"v5"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="s2">"arg13sdfgs"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"perm"</span><span class="p">:</span><span class="s2">"read_only,trade"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ip"</span><span class="p">:</span><span class="s2">"1.1.1.1,2.2.2.2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ts"</span><span class="p">:</span><span class="s2">"1597026383085"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="s2">"v5.1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="s2">"arg13sdfgs"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"perm"</span><span class="p">:</span><span class="s2">"read_only"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ip"</span><span class="p">:</span><span class="s2">"1.1.1.1,2.2.2.2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ts"</span><span class="p">:</span><span class="s2">"1597026383085"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id="dma-broker-common-v5-api-for-brokers-query-the-api-key-of-a-sub-account-response-parameters">Response parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left"><strong>Parameter</strong></th>
+<th style="text-align: left"><strong>Type</strong></th>
+<th style="text-align: left"><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">label</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">API Key note</td>
+</tr>
+<tr>
+<td style="text-align: left">apiKey</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">API public key</td>
+</tr>
+<tr>
+<td style="text-align: left">perm</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">API Key access<br><code>read_only</code>: Read<br><code>trade</code>: Trade<br><code>withdraw</code>: Withdraw</td>
+</tr>
+<tr>
+<td style="text-align: left">ip</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">IP address that linked with API Key</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">API Key creation time, Unix timestamp format in milliseconds, e.g. <code>1597026383085</code></td>
+</tr>
+</tbody></table>
+<h1 id="fully-disclosed-broker-api-and-oauth">Fully Disclosed Broker (API and Oauth)</h1><h2 id="fully-disclosed-broker-api-and-oauth-introduction">Introduction</h2>
+<p>There are 2 types of FD brokers. API brokers and OAuth brokers. If 
+you are trading aggregator platform, trading bot platform, technical 
+provider, asset management platform or a social trading platform, FD 
+broker will be the most suitable option for you<br><br></p>
+
+<p>API Broker</p>
+
+<ul>
+<li>Use OKX API to connect broker with OKX to enjoy OKX's unique products</li>
+<li>Users are able to create API keys on OKX and provide them to the 
+broker where they can use the broker UI to trade while choosing OKX as 
+the exchange</li>
+</ul>
+
+<p>OAuth Broker</p>
+
+<ul>
+<li>OAuth login provides your users a safer and more convenient way for users to use your product </li>
+<li>Broker can provide OAuth authorisation where API keys are automatically created for users</li>
+<li>More details can refer to <a href="https://www.okx.com/broker/home">broker homepage</a></li>
+</ul>
+
+<p>FD broker advanges:</p>
+
+<ul>
+<li>High Commission
+
+<ul>
+<li>Up to 50% commission</li>
+<li>Receives commission for both old and new users</li>
+<li>Support affiliate and broker rebates to get higher commissions</li>
+<li>Commissions received from high VIP users</li>
+</ul></li>
+<li>Flexible commission management through broker dashboard</li>
+<li>User's API safety
+
+<ul>
+<li>FAST API, a more convenient and safer method for users to create API keys</li>
+<li>Third-party IP whitelists, strengthen security where only trades executed via your whitelisted servers can be executed</li>
+</ul></li>
+</ul>
+<h2 id="fully-disclosed-broker-api-and-oauth-oauth-broker">OAuth Broker</h2><h3 id="fully-disclosed-broker-api-and-oauth-oauth-broker-introduction">Introduction</h3>
+<p>OAuth login provides your users a safer and more convenient way to use your product.<br>
+  With OKX OAuth 2.0, users can trade with OKX after one-click 
+authorization from third-party applications. No password or account API 
+key is required.<br>
+  OKX OAuth 2.0 is available in both Web and Mobile applications and is 
+developed based on some new features in the OAuth 2.0 protocol (RFC 
+6749) and the OAuth 2.1 draft protocol.<br>
+  To receive documents for OAuth, please contact your BD.</p>
+<h3 id="fully-disclosed-broker-api-and-oauth-oauth-broker-preparation-before-integration">Preparation before Integration</h3>
+<ol>
+<li><p>Register your account and apply for broker via the official website<br>
+You need to apply for an OAuth broker first and gain access to <code>client_id</code> and <code>client_secret</code> information after approval.<br>
+<b>Integration Procedures: </b>  </p>
+
+<ol>
+<li>Brokers apply for OKX accounts.</li>
+<li>Brokers apply to be an OAuth broker via OKX official website and 
+fill out the application form and fields with red asterisk are 
+mandatory. </li>
+<li>OKX will review the application form within 2 days after receiving it.</li>
+<li>The broker will receive an email notification including <code>client_id</code> and <code>client_secret</code> once the application form is approved by OKX's platform.</li>
+</ol></li>
+<li><p>OAuth Rebate settings<br>
+OAuth-Broker needs to add BrokerCode in the Tag during order placement, and OKX will use that Tag to calculate rebate.</p></li>
+</ol>
+<h3 id="fully-disclosed-broker-api-and-oauth-oauth-broker-introduction-of-authorization-mode">Introduction of authorization mode</h3>
+<p>OKX OAuth 2.0 provides: authorization code mode and PKCE mode.</p>
+
+<table><thead>
+<tr>
+<th>Authorization mode</th>
+<th>Descriptions</th>
+<th>Scenario</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization code mode</td>
+<td>With user authorization, the third-party app provides client_secret 
+to get authorization code. access token and refresh token can be 
+retrieved based on authorization codes.</td>
+<td>The application has a server, which can store app keys and interact with the OKX OAuth server .</td>
+</tr>
+<tr>
+<td>PKCE mode</td>
+<td>With User authorization, the third-party app provides code_verifier 
+as a temporary key to obtain authorization code. access token and 
+refresh token can be retrieved based on authorization codes.</td>
+<td>The application has no server (or does not want the back-end server 
+to intervene in the authorization process), therefore it cannot store 
+the app key or interact with the OKX OAuth server through random 
+characters.</td>
+</tr>
+</tbody></table>
+<h4 id="fully-disclosed-broker-api-and-oauth-oauth-broker-introduction-of-authorization-mode-authorization-code-mode">Authorization code mode</h4>
+<p>This mode is available in both App and Web application. User 
+authorizes third-party application from an authorisation page, which 
+receives user authorization code. After that, application exchanges it 
+for access token, which can be used to call OKX OpenAPI.</p>
+
+<p><img src="broker_files/code-1.0-en.svg" alt=""></p>
+<h4 id="fully-disclosed-broker-api-and-oauth-oauth-broker-introduction-of-authorization-mode-pkce-mode">PKCE mode</h4>
+<p>If the third-party application does not have a server or does not 
+want the server to participate in the authorization process or not able 
+to store the third-party app key (client_secret), then this mode is 
+recommended to obtain token through client device access to effectively 
+enhance the security of developer applications.</p>
+
+<p><img src="broker_files/pkce-1.0-en.svg" alt=""></p>
+<h3 id="fully-disclosed-broker-api-and-oauth-oauth-broker-usage-of-token">Usage of Token</h3><h4 id="fully-disclosed-broker-api-and-oauth-oauth-broker-usage-of-token-differences-between-tokens">Differences between tokens</h4>
+<p>After the third-party application calls the token exchange endpoint 
+through authorization code, there will be two types of tokens.</p>
+
+<ul>
+<li>access token : Used for third-party apps to call OKX OpenAPI endpoint.</li>
+<li>refresh token : Used for obtaining a new access token when the previous one expires.</li>
+</ul>
+<h4 id="fully-disclosed-broker-api-and-oauth-oauth-broker-usage-of-token-how-to-use">How to use</h4>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell" style=""><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code>curl <span class="nt">-H</span> <span class="s2">"Content-Type:application/json"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Authorization:Bearer eyJhbGciOiJIUzUxMiIsImNpZCI6ImFhIn0.eyJqdGkiOiJleDExMDE2Mzg4NDM3ODg1MzIxMzMzNUVGMkVGRTNGOUM2Y1BJWiIsInVpZCI6IlEybEZxMnY2N0VybnVMZ0o1cFYzdUE9PSIsIm1pZCI6InFGbG5lVEc4dnlJeDNMSnNSa29qZ0E9PSIsImlhdCI6MTYzODg0Mzc4OCwiZXhwIjoxNjM4ODQ3Mzg4LCJzdWIiOiIxMC4yNTQuMjcuMTIwIiwiYW95IjoiOSIsInZlciI6IjEiLCJkZXYiOiIzMmNmOWM2My02NzM3LTRhYjUtYjFhYi04ODU4YWU2NTkxODUiLCJndHkiOiJhdXRob3JpemUifQ.bWXsgN7hTszxmdFB9xhr0Qh67HQWIp2zoxoqMCUzw2y1MBFPm38nNJJY9coljkivgAQPso81YUnHoLsFOLjxGg"</span>  <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"TERMID:32cf9c63-6737-4ab5-b1ab-8858ae659185"</span> <span class="se">\</span>
+https://www.okx.com/api/v5/asset/currencies
+
+</code></pre></div>
+<p>After the third-party app completes the authorization and obtains the
+ token, it will be able to call the OKX OpenAPI endpoint through the 
+access token.
+When requesting, you need to carry the following information in the 
+request header:</p>
+
+<table><thead>
+<tr>
+<th>Header Parameters</th>
+<th>Required</th>
+<th>Descriptions</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization</td>
+<td>Yes</td>
+<td>Fill in the access token as bearer to this field, e.g. Access token 
+is "1234567890", then the content of the field should be "Bearer 
+1234567890"</td>
+</tr>
+<tr>
+<td>TERMID</td>
+<td>Conditional</td>
+<td>This field is used to verify the validity of the request<br>If the 
+request is initiated by the third-party client device app (such as 
+selecting PKCE mode), the client device should include the device ID 
+when requesting again<br>If the request is initiated by the third-party 
+app server (if the authorization code mode is selected), there is no 
+need to fill in this field</td>
+</tr>
+</tbody></table>
+<h4 id="fully-disclosed-broker-api-and-oauth-oauth-broker-usage-of-token-token-validity">Token validity</h4>
+<ul>
+<li>access token : Valid within 1 hour</li>
+<li>refresh token : Valid within 3 days </li>
+</ul>
+
+<p>If the access token expires, the endpoint will no longer be 
+accessible. If the refresh token is still within the valid period, the 
+third-party app needs to call the refresh token endpoint to obtain a new
+ pair of access token and refresh token. The new access token can 
+continue to be used.<br>
+  When a new access token is retrieved via refresh token, the old access
+ token cannot be used regardless of whether it has expired or not.
+  When you revoke the token, the original one will no longer be valid.  </p>
+<h3 id="fully-disclosed-broker-api-and-oauth-oauth-broker-permissions">Permissions</h3>
+<table><thead>
+<tr>
+<th>Permissions Scope</th>
+<th>Descriptions</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>read_only</td>
+<td>For read-only function permissions (not include sub-account modules)</td>
+</tr>
+<tr>
+<td>trade</td>
+<td>For trading function permissions (not include sub-account modules)</td>
+</tr>
+</tbody></table>
+<h3 id="fully-disclosed-broker-api-and-oauth-oauth-broker-fast-api">Fast API</h3>
+<p><br>
+<strong>Introduction</strong> <br><br></p>
+
+<p>Fast API is a feature that helps OKX users quickly authorize third-party apps, create API Keys and bind third-party apps.</p>
+
+<p><br>
+<strong>Fast API workflow</strong> <br><br></p>
+
+<p><img src="broker_files/fast_api_en.png" alt=""></p>
+
+<p>After the Broker user logs in on the Broker interface, he can jump to
+ the login OKX page through Oauth authorization. After the login 
+authorization on the OKX page, OKX will authorize the API broker to 
+create an API Key for his user with read-only and trade permissions.</p>
+
+<p><br>
+<strong>Application process</strong> <br></p>
+
+<ol>
+<li><p>Apply for API and OAuth Brokers on OKX </p>
+
+<ul>
+<li>It is recommended to apply for a third-party APP IP Whitelist<br></li>
+</ul></li>
+<li><p>In the Oauth Broker application, provide </p>
+
+<ul>
+<li>Third-Party Servers IP Whitelist</li>
+<li>Redirect URL </li>
+<li>Logo </li>
+<li>Fast API permissions </li>
+<li>Cross Domain Name</li>
+</ul></li>
+<li><p>After your application is successful, you will receive an email 
+with client_id and client_secret. Please keep this information safe and 
+do not show it to others.</p></li>
+</ol>
+<h2 id="fully-disclosed-broker-api-and-oauth-broker-commision-api">Broker Commision API</h2>
+<ul>
+<li>You can know whether the user is your invitee by <a href="https://www.okx.com/docs-v5/en/#affiliate">Affiliate endpoint</a></li>
+<li>You can know whether the user can contribute rebate to you by <a href="https://www.okx.com/docs-v5/broker_en/#fully-disclosed-broker-api-and-oauth-broker-commision-api-get-the-user-39-s-broker-rebate-information">Get the user's broker rebate information</a></li>
+<li>Rebate data download 
+
+<ul>
+<li>Generate data by <a href="https://www.okx.com/docs-v5/broker_en/#fully-disclosed-broker-api-and-oauth-broker-commision-api-create-rebate-details-download-link-fd">Create rebate details download link (FD)</a> first.</li>
+<li>Then get download link by <a href="https://www.okx.com/docs-v5/broker_en/#fully-disclosed-broker-api-and-oauth-broker-commision-api-get-download-link-fd">Get download link (FD)</a>.</li>
+</ul></li>
+</ul>
+<h3 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-download-link-fd">Get download link (FD)</h3>
+<p>Get the download link of the commission rebate details that have been
+ successfully applied for. Every request gets refreshed links that are 
+valid for 2 hours.</p>
+<h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-download-link-fd-rate-limit-2-requests-per-min">Rate Limit: 2 requests per min</h4><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-download-link-fd-rate-limit-rule-user-id">Rate limit rule: User ID</h4><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-download-link-fd-permission-read">Permission: Read</h4><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-download-link-fd-http-request">HTTP Request</h4>
+<p><code>GET /api/v5/broker/fd/rebate-per-orders</code></p>
+
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell" style=""><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code>GET /api/v5/broker/fd/rebate-per-orders?type<span class="o">=</span><span class="nb">false</span>&amp;begin<span class="o">=</span>20211109&amp;end<span class="o">=</span>20211208
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python" style="display: none;"><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code><span class="kn">import</span> <span class="nn">okx.FDBroker</span> <span class="k">as</span> <span class="n">FDbroker</span>
+
+<span class="c1"># API initialization
+</span><span class="n">apikey</span> <span class="o">=</span> <span class="s">"YOUR_API_KEY"</span>
+<span class="n">secretkey</span> <span class="o">=</span> <span class="s">"YOUR_SECRET_KEY"</span>
+<span class="n">passphrase</span> <span class="o">=</span> <span class="s">"YOUR_PASSPHRASE"</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="s">"0"</span>  <span class="c1"># Production trading: 0, Demo trading: 1
+</span>
+<span class="n">fdBrokerAPI</span> <span class="o">=</span> <span class="n">FDbroker</span><span class="p">.</span><span class="n">FDBrokerAPI</span><span class="p">(</span><span class="n">apikey</span><span class="p">,</span> <span class="n">secretkey</span><span class="p">,</span> <span class="n">passphrase</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+
+<span class="c1"># Get the download link of the commission rebate details
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">fdBrokerAPI</span><span class="p">.</span><span class="n">get_rebate_details_download_link</span><span class="p">(</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s">"true"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-download-link-fd-request-parameters">Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Yes</td>
+<td style="text-align: left">Type<br><code>true</code>: Get all the generated history for the current user<br><code>false</code>: Query the specified history</td>
+</tr>
+<tr>
+<td style="text-align: left">begin</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">Begin date for download link generated, in the format of <code>YYYYMMDD</code>, e.g. <code>20210623</code>, search data after <code>2021/06/23 00:00:00</code> (include)<br> If <code>type</code> is false, this field is required</td>
+</tr>
+<tr>
+<td style="text-align: left">end</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">End date for download link generated, in the format of <code>YYYYMMDD</code>, e.g. <code>20210623</code>, search data before <code>2021/06/24 00:00:00</code> (exclude)<br>If <code>type</code> is false, this field is required</td>
+</tr>
+<tr>
+<td style="text-align: left">brokerType</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">Broker type<br><code>api</code>: API Broker<br><code>oauth</code>: Oauth Broker<br>When the broker has only one broker type, this parameter can be left blank<br>This parameter is required when the broker has multiple broker types</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"fileHref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://okg-pri-hk.oss-cn-hongkong.aliyuncs.com/okex/broker/pap/brokerRebateInfo/2c0ca94923dca9f53659507ee20a1f/2022-05-16/RebateDetails/RebateDetails0510-0513.xls?Expires=1652880844&amp;OSSAccessKeyId=LTAIKNPwWs7ASPZn4iaa&amp;Signature=ro%2BD2OMAgVzDrfguxjIM%2FY%3D"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"finished"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1646892328000"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-download-link-fd-response-parameters">Response Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left"><strong>Parameter</strong></th>
+<th style="text-align: left"><strong>Type</strong></th>
+<th style="text-align: left"><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">fileHref</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Download file link</td>
+</tr>
+<tr>
+<td style="text-align: left">beginTime</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Rebate record begin time, Unix timestamp format in milliseconds, e.g. <code>1597026383085</code></td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Rebate record end time, Unix timestamp format in milliseconds, e.g. <code>1597026383085</code></td>
+</tr>
+<tr>
+<td style="text-align: left">cTime</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The first request time for generating download link, Unix timestamp format in milliseconds, e.g. <code>1597026383085</code></td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Download link generation time, Unix timestamp format in milliseconds, e.g. <code>1597026383085</code></td>
+</tr>
+<tr>
+<td style="text-align: left">state</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Download link status<br><code>finished</code><br><code>ongoing</code></td>
+</tr>
+</tbody></table>
+<h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-download-link-fd-field-descriptions-in-the-decompressed-csv-file">Field descriptions in the decompressed CSV file</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">brokerCode</td>
+<td style="text-align: left">Brokercode the user tag with</td>
+</tr>
+<tr>
+<td style="text-align: left">level</td>
+<td style="text-align: left">The user level，e.g Lv1, Lv2, VIP1, VIP2</td>
+</tr>
+<tr>
+<td style="text-align: left">instId</td>
+<td style="text-align: left">Instrument ID</td>
+</tr>
+<tr>
+<td style="text-align: left">ordId</td>
+<td style="text-align: left">Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">spotTradeAmt</td>
+<td style="text-align: left">Spot trade volume, in unit of <code>USDT</code></td>
+</tr>
+<tr>
+<td style="text-align: left">derivativeTradeAmt</td>
+<td style="text-align: left">Derivative trade, in unit of <code>USDT</code></td>
+</tr>
+<tr>
+<td style="text-align: left">fee</td>
+<td style="text-align: left">Fee, in unit of <code>USDT</code></td>
+</tr>
+<tr>
+<td style="text-align: left">netFee</td>
+<td style="text-align: left">Net fee (The fee base for commission settlement after removing data such as commission cards and counterparties), in unit of <code>USDT</code></td>
+</tr>
+<tr>
+<td style="text-align: left">settlementFee</td>
+<td style="text-align: left">Settlement fee (The fee base before settlement removing node commission rebates, commission cards, etc. ), in unit of <code>USDT</code></td>
+</tr>
+<tr>
+<td style="text-align: left">brokerRebate</td>
+<td style="text-align: left">Rebate amount to broker, in unit of <code>USDT</code></td>
+</tr>
+<tr>
+<td style="text-align: left">suBrokerRebate</td>
+<td style="text-align: left">Rebate amount to sub-broker, in unit of <code>USDT</code></td>
+</tr>
+<tr>
+<td style="text-align: left">userRebate</td>
+<td style="text-align: left">Rebate amount to user, in unit of <code>USDT</code></td>
+</tr>
+<tr>
+<td style="text-align: left">affiliated</td>
+<td style="text-align: left">Whether there is affiliated rebate. <code>true</code> or <code>false</code></td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">The last trade time of the order. Unix timestamp format in milliseconds, e.g. <code>1597026383085</code></td>
+</tr>
+</tbody></table>
+<h3 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-create-rebate-details-download-link-fd">Create rebate details download link (FD)</h3>
+<p>Support total historical commission details for FD Broker.</p>
+<h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-create-rebate-details-download-link-fd-rate-limit-1-request-60-min">Rate Limit: 1 request 60 min</h4><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-create-rebate-details-download-link-fd-rate-limit-rule-user-id">Rate limit rule: User ID</h4><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-create-rebate-details-download-link-fd-permission-read">Permission: Read</h4><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-create-rebate-details-download-link-fd-http-request">HTTP Request</h4>
+<p><code>POST /api/v5/broker/fd/rebate-per-orders</code></p>
+
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell" style=""><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code>POST /api/v5/broker/fd/rebate-per-orders
+body
+<span class="o">{</span>
+    <span class="s2">"begin"</span>:<span class="s2">"20210623"</span>,
+    <span class="s2">"end"</span>:<span class="s2">"20210626"</span>
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python" style="display: none;"><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code><span class="kn">import</span> <span class="nn">okx.FDBroker</span> <span class="k">as</span> <span class="n">FDbroker</span>
+
+<span class="c1"># API initialization
+</span><span class="n">apikey</span> <span class="o">=</span> <span class="s">"YOUR_API_KEY"</span>
+<span class="n">secretkey</span> <span class="o">=</span> <span class="s">"YOUR_SECRET_KEY"</span>
+<span class="n">passphrase</span> <span class="o">=</span> <span class="s">"YOUR_PASSPHRASE"</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="s">"0"</span>  <span class="c1"># Production trading: 0, Demo trading: 1
+</span>
+<span class="n">fdBrokerAPI</span> <span class="o">=</span> <span class="n">FDbroker</span><span class="p">.</span><span class="n">FDBrokerAPI</span><span class="p">(</span><span class="n">apikey</span><span class="p">,</span> <span class="n">secretkey</span><span class="p">,</span> <span class="n">passphrase</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+
+<span class="c1"># Generate historical commission details
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">fdBrokerAPI</span><span class="p">.</span><span class="n">generate_rebate_details_download_link</span><span class="p">(</span>
+    <span class="n">begin</span><span class="o">=</span><span class="s">"20210623"</span><span class="p">,</span>
+    <span class="n">end</span><span class="o">=</span><span class="s">"20210626"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-create-rebate-details-download-link-fd-request-parameters">Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">begin</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Yes</td>
+<td style="text-align: left">Begin date, in the format of <code>YYYYMMDD</code>, e.g. <code>20210623</code>, search data after <code>2021/06/23 00:00:00</code> (include)</td>
+</tr>
+<tr>
+<td style="text-align: left">end</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Yes</td>
+<td style="text-align: left">End date, in the format of <code>YYYYMMDD</code>, e.g. <code>20210623</code>, search data before <code>2021/06/24 00:00:00</code> (exclude)</td>
+</tr>
+<tr>
+<td style="text-align: left">brokerType</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">Broker type<br><code>api</code>: API Broker<br><code>oauth</code>: Oauth Broker<br>When the broker has only one broker type, this parameter can be left blank<br>This parameter is required when the broker has multiple broker types</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+The interval between begin and end of the data time range downloaded by one request is 180 days
+</aside>
+
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1646892328000"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-create-rebate-details-download-link-fd-response-parameters">Response Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left"><strong>Parameter</strong></th>
+<th style="text-align: left"><strong>Type</strong></th>
+<th style="text-align: left"><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">result</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Whether there is already a download link for this section <br><code>true</code>: Existed, can check from "Get download link". <br><code>false</code>: Does not exist and is generating, can check the download link after 2 hours</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Timestamp when the server received the 
+first request to generate historical commission details. Unix timestamp 
+format in milliseconds, e.g. <code>1597026383085</code></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Check the file link from the "Get download link (FD)" endpoint in 2 hours to allow for data generation. <br>
+During peak demand, data generation may take longer. If the file link is
+ still unavailable after 3 hours, reach out to customer support for 
+assistance.
+</aside>
+<h3 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-the-user-39-s-broker-rebate-information">Get the user's broker rebate information</h3>
+<p>If the user meets rebate conditions, places orders with brokerCode 
+and pays the transaction fee, FD brokers will get broker rebate.</p>
+<h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-the-user-39-s-broker-rebate-information-rate-limit-2-requests-per-second">Rate Limit: 2 requests per second</h4><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-the-user-39-s-broker-rebate-information-rate-limit-rule-user-id">Rate limit rule: User ID</h4><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-the-user-39-s-broker-rebate-information-permission-read">Permission: Read</h4><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-the-user-39-s-broker-rebate-information-http-request">HTTP Request</h4>
+<p><code>GET /api/v5/broker/fd/if-rebate</code></p>
+
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell" style=""><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code>GET /api/v5/broker/fd/if-rebate?apiKey<span class="o">=</span>63d54aa0-0020-4ad9-a9f0-ac92654bc831
+</code></pre></div><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-the-user-39-s-broker-rebate-information-request-parameters">Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">apiKey</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Yes</td>
+<td style="text-align: left">The user's API key</td>
+</tr>
+<tr>
+<td style="text-align: left">brokerType</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Optional</td>
+<td style="text-align: left">Broker Type<br><code>api</code>: API Broker<br><code>oauth</code>: Oauth Broker<br>When the broker has only one broker type, this parameter can be left blank<br>This parameter is required when the broker has multiple broker types</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><div class="copy-clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Copy to Clipboard</title><path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"></path></svg></div><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"affiliated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"brokerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6099c63a8d75SCDE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"clientRebateRatio"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"lastRebate"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id="fully-disclosed-broker-api-and-oauth-broker-commision-api-get-the-user-39-s-broker-rebate-information-response-parameters">Response Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left"><strong>Parameter</strong></th>
+<th style="text-align: left"><strong>Type</strong></th>
+<th style="text-align: left"><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">The reason that Broker cannot get broker rebate<br><code>0</code>: Broker can get broker rebate<br><code>1</code>: Broker identification is expired<br><code>2</code>: The trading fee level is <code>VIP4/5</code> and the monthly commission amount has reached the upper limit<br><code>3</code>: The trading fee level is greater than or equal to <code>VIP6</code></td>
+</tr>
+<tr>
+<td style="text-align: left">brokerCode</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Broker code for FD broker</td>
+</tr>
+<tr>
+<td style="text-align: left">affiliated</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Whether there is an affiliated rebate<br><code>true</code>: there is an affiliated rebate<br><code>false</code>: no affiliated rebate</td>
+</tr>
+<tr>
+<td style="text-align: left">clientRebateRatio</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Commission rebate ratio for client</td>
+</tr>
+<tr>
+<td style="text-align: left">lastRebate</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Account monthly rebate amount. Only applicable to VIP4 and VIP5</td>
+</tr>
+</tbody></table>
+<h2 id="fully-disclosed-broker-api-and-oauth-error-code">Error Code</h2>
+<table><thead>
+<tr>
+<th>Error Message</th>
+<th>HTTP Status Code</th>
+<th>Error Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>53000</td>
+<td>400</td>
+<td>Invalid token</td>
+</tr>
+<tr>
+<td>53001</td>
+<td>400</td>
+<td>Authorization canceled</td>
+</tr>
+<tr>
+<td>53002</td>
+<td>400</td>
+<td>Token expired</td>
+</tr>
+<tr>
+<td>53003</td>
+<td>400</td>
+<td>Token revoked</td>
+</tr>
+<tr>
+<td>53004</td>
+<td>400</td>
+<td>Account has been frozen</td>
+</tr>
+<tr>
+<td>53005</td>
+<td>400</td>
+<td>Wrong refresh token</td>
+</tr>
+<tr>
+<td>53006</td>
+<td>401</td>
+<td>Invalid device</td>
+</tr>
+<tr>
+<td>53009</td>
+<td>400</td>
+<td>Authorization failed</td>
+</tr>
+<tr>
+<td>53010</td>
+<td>400</td>
+<td>Parameter {0} error</td>
+</tr>
+<tr>
+<td>53011</td>
+<td>400</td>
+<td>Parameter {0} cannot be empty</td>
+</tr>
+<tr>
+<td>53012</td>
+<td>400</td>
+<td>Authorization code expired</td>
+</tr>
+<tr>
+<td>53013</td>
+<td>400</td>
+<td>You don’t have permission to access this API</td>
+</tr>
+<tr>
+<td>53014</td>
+<td>401</td>
+<td>Invalid IP</td>
+</tr>
+<tr>
+<td>53015</td>
+<td>400</td>
+<td>Parameter {name} length cannot exceed {max length}</td>
+</tr>
+<tr>
+<td>53016</td>
+<td>400</td>
+<td>Invalid redirect_uri</td>
+</tr>
+<tr>
+<td>53017</td>
+<td>400</td>
+<td>Fast API permissions not enabled</td>
+</tr>
+</tbody></table>
+
+        </div>
+        <div class="dark-box">
+            <div class="lang-selector" style="width: 554.4px;">
+                  <a href="#" data-language-name="shell" class="active">HTTP</a>
+                  <a href="#" data-language-name="python">Python</a>
+            </div>
+        </div>
+    </div>
+    <!-- monitor page -->
+        <script>
+          window.okGlobal = { envSign: 'prod' };
+        </script>
+        <script src="broker_files/index.js"></script>
+        <script src="broker_files/index_002.js"></script>
+
+  
+
+</body></html>
