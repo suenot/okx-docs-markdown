@@ -1,4 +1,5 @@
 # OKX API V5 Documentation
+[![Context7 Docs](https://badgen.net/badge/Context7/OKX%20Docs/blue)](https://context7.com/suenot/okx-docs-markdown)
 
 ## Getting Started
 - [Introduction](./docs/introduction.md)
